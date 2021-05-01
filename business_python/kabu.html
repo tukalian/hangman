@@ -1,0 +1,2755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr" id="R1">
+<head>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="mixi-check-robots" CONTENT="nodescription, noimage">
+<meta name="thumbnail" content="https://assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_ogpnikkei.png" />
+<meta property="og:image" content="https://assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_ogpnikkei.png" />
+<meta property="fb:app_id" content="197388106979545" />
+<meta name="description" content="日経電子版の総合投資・金融情報コーナー。株式・為替から債券、商品、新興国市場など国内外の最新マーケット情報はもちろん、第一線の記者による分析・解説記事を豊富に提供します。企業の最新ニュースや詳細な株価・財務データを提供するオンライン版の「日経会社情報」、チャートや銘柄管理ツールなどの便利な機能も充実しています。" />
+<meta name="news_keywords" content="日経,日本経済新聞,日経電子版,nikkei,日経平均,株価,株式,銘柄,金融,投資,マネー,マーケット,市場,資産運用,投信" />
+<meta name="keywords" content="日経,日本経済新聞,日経電子版,nikkei,日経平均,株価,株式,銘柄,金融,投資,マネー,マーケット,市場,資産運用,投信" />
+
+<meta name="msApplication-ID" content="AE156C3D.494F24E3" />
+<meta name="msApplication-PackageFamilyName" content="AE156C3D.494F24E3_drw2bfqyhqxtg" />
+<meta name="info003" content="true" />
+<title>株式: 日経電子版</title>
+<link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/markets/layout.markets.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/markets/layout.markets.ext.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/markets/layout.markets.parts.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/layout.common.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/layout.module.master.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/layout.subpage.master.css" media="screen,tv,projection,print" /><link rel="stylesheet" type="text/css" href="//assets.nikkei.jp/release/v3.2.141/parts/ds/css/layout.module.optin.css" media="screen,tv,projection,print" /><!--[if IE]><script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/excanvas.compiled.min.js"></script><![endif]--><script type="text/javascript">
+_nkconf = {};_nkconf.ID_YUDO = [];_nkconf.DATA_UPDATE_URL="";_nkconf.DATA_TOKEN_VALUE="";_nkconf.DATA_SESSION={};_nkconf.DATA_SESSION_CHECK_URL="/async/async.do/?ae=P_CM_WHITE&sv=NX";_nkconf.DATA_MAP_NAME={day:"NK_DS_DISP_D",month:"NK_DS_DISP_M",memory:"NK_DS_DISP_T",long:"NK_DS_DISP_I",market:"NK_MONEY_STOCK_LIST",next_pc:"KiteOpt"};_nkconf.IS_PRINTPAGE=false;_nkconf.SCRIPT_DOMAIN_DEFAULT="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/";_nkconf.SCRIPT_RUNASYNC={autopopup:"nkds.kijiballoon.min.js",change:"nkds.classchange.min.js",date:"nkds.datepicker.min.js",fontsize:"nkds.kijitool.min.js",formcheck:"nkds.formcheck.min.js",gadget:"nkds.gadget.min.js",graph:"nkds.graph.min.js",groupcheck:"nkds.groupcheck.min.js",max:"nkds.checkmax.min.js",openclose:"nkds.openclose.min.js",popupmenu:"nkds.popupmenu.min.js",pics:"nkds.paperpics.min.js",replace:"nkds.tagreplace.min.js",slider:"nkds.slider.min.js",swf_keyword:"nkds.loadswf.keyword.min.js",swf_novel:"nkds.loadswf.novel.min.js",swf_photo:"nkds.loadswf.photo.min.js",swf_viewer:"nkds.loadswf.viewer.min.js",advertise:"nad.min.js",inheritquery:"nkds.inheritquery.min.js",flick:"nkds.flick.min.js",photoviewer:"nkds.photoviewercontrol.min.js",yomimasuka:"nkds.yomimasukacontrol.min.js"};_nkconf.MEGAMENU_URL="/async/async.do/?ae=JO_CM_MEGAMENU&sv=NX&menu=";_nkconf.COMPANY_SUGGEST_URL="/async/async.do/?ae=JO_CM_COMPANY_SUGGEST&sv=NX&searchKeyword=";_nkconf.NKD_SUGGEST_URL="/async/async.do/?ae=JO_CM_CW_SRBOX_SUGGEST_2017&sv=NX&searchKeyword=%QUERY&JSON=true";_nkconf.FUND_SUGGEST_URL="/async/async.do/?ae=JO_CM_CW_FUND_SRBOX_SUGGEST&sv=NX&searchKeyword=%QUERY&JSON=true";_nkconf.FUND_SALES_COMPANY_SUGGEST_URL="/async/async.do/?ae=JO_CM_FUND_SALES_COMPANY_SUGGEST&sv=NX&searchKeyword=%QUERY&JSON=true";_nkconf.PATH_FIXIMG="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/";
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NLMX6SG');</script>
+<!-- End Google Tag Manager -->
+
+<script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.header.min.js"></script><script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.my.common.min.js"></script><script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.market.min.js"></script><script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/jquery.lazyload.min.js"></script><script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/jquery.pseudo.js"></script><!-- Make sure the href of the link tag points to the icon you created -->
+
+<link rel="shortcut icon" type="image/ico" href="/.resources/static/app/icons/favicon.ico" />
+<meta name="application-name" content="日本経済新聞　電子版" />
+<meta name="msapplication-starturl" content="https://www.nikkei.com/" />
+<meta name="msapplication-navbutton-color" content="#004ec0" />
+<meta name="msapplication-window" content="width=1024;height=768" />
+<meta name="msapplication-tooltip" content="日経電子版でニュースをチェック" />
+
+<!-- Each meta tag below adds a Static Jump List item to the
+ Tasks list on our pinned site's Jump List menu -->
+<meta name="msapplication-task"
+content="name=Web刊;
+action-uri=https://www.nikkei.com/;
+icon-uri=//assets.nikkei.jp/release/v3.2.141/parts/ds/images/ico/pin_16webkan.ico" />
+
+<meta name="msapplication-task"
+content="name=朝刊・夕刊;
+action-uri=https://www.nikkei.com/paper/;
+icon-uri=//assets.nikkei.jp/release/v3.2.141/parts/ds/images/ico/pin_16paper.ico" />
+
+<meta name="msapplication-task"
+content="name=Myニュース;
+action-uri=https://r.nikkei.com/mynews;
+icon-uri=//assets.nikkei.jp/release/v3.2.141/parts/ds/images/ico/pin_16my.ico" />
+
+<script type="text/javascript">
+var F1H_CUSTOM_KEY_VALUE = {TOPIC:['18000000','18C10000'],KFID0:'DF_SEC8_______',KFID1:'DF_SEC8_C_____',KFID2:'DF_SEC8_C1____',KFID3:'DS_MK_CORNERTOP'};
+</script>
+
+<script>
+(function() {
+  try {
+    var item = localStorage.getItem('nikkei-segment-ids');
+    var data = typeof item === 'string' ? JSON.parse(item) : null;
+    if (!data) {
+      return;
+    }
+    if (data.expired < Date.now()) {
+      localStorage.removeItem('nikkei-segment-ids');
+      return;
+    }
+    if (F1H_CUSTOM_KEY_VALUE) {
+      F1H_CUSTOM_KEY_VALUE.NSEG = data.segmentIds;
+    }
+  } catch (e) {
+    //console.log(e);
+  }
+})();
+$(document).ready(function() {
+  var cookies = document.cookie.split('; ');
+  var serialId = null;
+  var atlasId = null;
+  $.each(cookies, function(index, item) {
+    if (item.indexOf('NID-Serial-Cookie') !== -1) {
+      serialId = item.split('=')[1];
+    }
+    if (item.indexOf('atlasId') !== -1) {
+      atlasId = item.split('=')[1];
+    }
+  });
+  if (!serialId && !atlasId) {
+    return;
+  }
+  var params = '';
+  params += serialId ? '&user_serial_id=' + serialId : '';
+  params += atlasId ? '&atlas_id=' + atlasId : '';
+  params = params.slice(1);
+
+  $.ajax({
+    url: 'https://apigw.n8s.jp/ads/v1/segments?' + params,
+    dataType: 'json',
+    success: function(data) {
+      var segmentIds = data.segment_ids;
+      var current = new Date();
+      var expired = current.setDate(current.getDate() + 90);
+      try {
+        localStorage.setItem('nikkei-segment-ids', JSON.stringify({
+          segmentIds: segmentIds,
+          expired: expired
+        }));
+      } catch (e) {
+        //console.log(e);
+      }
+    },
+    error: function(err) {
+      //console.log(err);
+    }
+  });
+});
+</script>
+
+
+<script type="text/javascript" src="//partsa.nikkei.com/static/nkis/js/foneH.js"></script>
+<script async type="text/javascript" src="https://r.nikkei.com/.resources/tracking/static/script/bundle-click-tracker.rev-8b2f5d.js"></script>
+<script async type="text/javascript" src="https://r.nikkei.com/.resources/tracking/static/script/bundle-inview-tracker.rev-bfbe8a.js"></script>
+
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    var track = function (data) {
+      window.atlasTracking.trackAction(data.action, data.category, data.events, data.options);
+    };
+
+    window.initInviewTracker(track);
+    window.initClickTracker(track);
+  });
+</script>
+<style>
+<!--
+.menu_display {display:table-cell;}
+.menu_none {display:none;}
+-->
+</style>
+
+<script src="//assets.adobedtm.com/43692acb8f62beca52063bd53825dcc138f4617b/satelliteLib-f111f9ba39867252079783186a3954a05ce68264.js"></script>
+
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"da29c19cda",applicationID:"91347868"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script></head>
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLMX6SG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+	<div class="bs-advertise">
+			<div id="ADVERTISE_BANNER">
+				<div>
+				</div>
+			</div>
+		</div>
+		<div class="l-advertise" id="js-advertise">
+			<div class="l-advertise_body">
+				<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1624, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2166_1624">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2166_1624');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+		</div>
+	<div id="PAGE_TOP">
+    <div class="subpage-header ">
+    <div class="subpage-header__inner">
+        <div class="subpage-header__logo-wrap"><a href="/" class="subpage-header__logo"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_header_20172017.png" title="日本経済新聞" alt="日本経済新聞" /><![endif]-->
+                <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_header_2017.svg" title="日本経済新聞" alt="日本経済新聞" /><!--<![endif]--></a></div>
+
+        <ul class="subpage-header__contents">
+            <li class="subpage-header__content">
+                <a href="/paper/" class="subpage-header__btn subpage-header__btn--icon"><i><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_paper_02.svg" title="" alt="" /></i>
+                        <span>朝刊・夕刊</span></a></li>
+            <li class="subpage-header__content">
+                <a href="https://r.nikkei.com/stories" class="subpage-header__btn subpage-header__btn--icon"><i><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_story_02.svg" title="" alt="" /></i>
+                    <span>ストーリー</span></a></li>
+            <li class="subpage-header__content">
+                    <a href="https://r.nikkei.com/mynews" class="subpage-header__btn subpage-header__btn--icon" onclick=""><i>
+                            <img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_mynews_02.svg" title="" alt="" /><span id="JSID_baseBalloon"></span>
+                        </i>
+                        <span>Myニュース</span></a></li>
+            <li class="subpage-header__content">
+                <a href="/nkd/?n_cid=DSNKD003" class="subpage-header__btn subpage-header__btn--icon "><i>
+                        <img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_nkd_02.svg" title="" alt="" /><span id="JSID_baseBalloon_nkd"></span>
+                    </i>
+                    <span>日経会社情報</span></a></li>
+            <li class="subpage-header__content">
+                <a href="/jinji/all/" target="_blank" class="subpage-header__btn subpage-header__btn--icon "><i>
+                        <img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_jinji_02.svg" title="" alt="" /><span id="JSID_baseBalloon_Jw"></span>
+                    </i>
+                    <span>人事ウオッチ</span></a></li>
+            <li class="subpage-header__content">
+                <a href="https://business.nikkei.com/?n_cid=DSGNB001" target="_blank" class="subpage-header__btn subpage-header__btn--icon"><i><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/icon_biz.svg" title="" alt="" /></i>
+                    <span>日経ビジネス</span></a></li>
+            <script type="text/javascript">
+    </script>
+<li class="subpage-header__content subpage-header__content--subscribe">
+                            <a href="/r123/?n_cid=DSPRM1HR01" class="subpage-header__btn subpage-header__btn--subscribe">
+                                <span>お申し込み</span>
+                            </a>
+                        </li>
+                    <li class="subpage-header__content subpage-header__content--login">
+                        <a href="javascript:void(0)" id="JSID_LOGIN" class="subpage-header__btn subpage-header__btn--login" rel="nofollow"><span>ログイン</span></a></li>
+                </ul><script type="text/javascript">
+	_nk.putUrl("#JSID_LOGIN",{JSID_urlTargettype:'href',JSID_urlTargeturl:'https://www.nikkei.com/etc/accounts/login?dps=1&url=' + encodeURIComponent(location.href) + ''});
+	</script>
+</div>
+    <script>
+	//銀鍵記事閲覧本数取得
+	function reload(sUrl) {
+		if(sUrl === undefined){
+			return;
+		}
+		var $UserMenuEtsuranhonsu;
+		$UserMenuEtsuranhonsu = $('#JSID_UserMenu').find('.JSID_etsuranhonsuPopupHTML');
+		_nk.getAsync({
+			url: sUrl,
+			json: true,
+			type: "get",
+			callback: function(oJson, sStatus) {
+				if (sStatus == _nk.RES_SUCCESS) {
+					if (oJson.html == "") {
+						return;
+					}
+					// 正常応答時はHTMLを表示
+					$UserMenuEtsuranhonsu.html(oJson.html);
+				}
+			}
+		});
+	};
+	$(document).ready(function(){
+		var eventSelector = '.js-subpage-user-menu';
+		var $menberBtn = $(eventSelector + ':not(.subpage-user-menu)');
+		var $userMenu = $('.subpage-user-menu');
+		var class_show = 'subpage-user-menu--show';
+		var class_hide = 'subpage-user-menu--hide';
+		$menberBtn.click(function(e){
+			e.preventDefault();
+			if(!$userMenu.hasClass(class_show)){
+				$userMenu.addClass(class_show).removeClass(class_hide);
+				reload('');
+			}else{
+				$userMenu.removeClass(class_show).addClass(class_hide);
+			}
+		});
+		$(document).click(function(e) {
+			if(!$(e.target).closest(eventSelector).length){
+				if($userMenu.hasClass(class_show)){
+					$userMenu.removeClass(class_show).addClass(class_hide);
+				}
+			}
+		});
+	});
+</script>
+    </div>
+</div>
+
+<style type="text/css">
+    <!--
+    [type="search"]::-webkit-search-cancel-button,
+    [type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+    [type="search"]::-ms-clear {
+    visibility:hidden
+    }
+    -->
+</style>
+<div class="subpage-gnav ">
+    <div class="subpage-gnav__inner">
+        <ul class="subpage-gnav__list">
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/"><span>トップ</span></a><div class="subpage-gnav__sub">
+        <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+            <li class="subpage-gnav-sublist__item">
+                <a href="/news/category/">速報</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/access/">アクセスランキング</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/theme/list/">トピック一覧</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/news/jinji/">人事</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/news/okuyami/">おくやみ</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/pressrelease/">プレスリリース</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="https://vdata.nikkei.com/" target="_blank">ビジュアルデータ</a>
+            </li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/photo/">写真</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="http://www.nikkei.com/video/?n_cid=DTOPV001"><span>映像</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/opinion/editorial/">社説</a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="https://vdata.nikkei.com/economicdashboard/macro/" target="_blank">統計</a>
+            </li>
+            <li class="subpage-gnav-sublist__aside" >
+                 <a href="/theme/list/" class="subpage-gnav-sublist__aside-title">話題のトピック
+                     <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=21021600">カーボンゼロ</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=20012202">新型コロナ</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=21021501">日経平均3万円回復</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=19020801">東日本大震災10年</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=21020402">ミャンマークーデター</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=20121600">バイデン政権</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=17090320">働き方改革</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=17090316">就活</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=1CC90000">FT</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=19040802">5G</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=18053003">ヒットのクスリ</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=1HC30000">私の履歴書</a></li>
+                         <li class="subpage-gnav-sublist__aside-item">
+                                 <a href="/theme/?dw=19062801">今週の予定</a></li>
+                         </ul>
+                 </li>
+        </ul>
+        </div>
+</li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub currentnavi"><a href="/news/category/"><span>速報</span></a><div class="subpage-gnav__sub">
+        <ul class="subpage-gnav-sublist">
+            <li class="subpage-gnav-sublist__item">
+                <a href="/news/jinji/"><span>人事</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/news/okuyami/"><span>おくやみ</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/pressrelease/"><span>プレスリリース</span></a></li>
+        </ul>
+    </div>
+</li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/money/"><span>マネー</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/money/invest/">増やす</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/money/learn/">学ぶ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/money/save/">貯める</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/money/benefit/">得する</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/money/borrow/">借りる</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/money/prepare/">備える</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/money/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20031100">教えて高井さん</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20031802">みんなのESG</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20031301">お金のトリセツ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20031601">お金を殖やすツボとドツボ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030501">Life is MONEY</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20031800">日経マネー特集</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030507">積立王子</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030502">プロのポートフォリオ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030505">家計の法律クリニック</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20032601">人生100年こわくない</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030508">Dr.マネーお悩み外来</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20030503">20代からのマイホーム考</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20070900">なるほどポンッ！</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20100700">明日へのヒント</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20101500">日経平均・円ダービー</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20102100">めざせ投信の達人</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/economy/"><span>経済・金融</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/economy/economic/">経済</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/economy/monetary/">金融機関</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/economy/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19100302">金融コンフィデンシャル</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19092501">底流</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090315">金融最前線</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19090400">日銀ウオッチ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17092101">経済教室</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17092100">やさしい経済学</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18032900">霞が関エックス線</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/politics/"><span>政治</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/politics/politics/">政治</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/politics/public-opinion-survey/">世論調査</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/politics/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18060400">写真でみる永田町</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19092503">Political Num.</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17101601">風見鶏</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19100700">国際法・ルールと日本</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17101602">憲法のトリセツ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090313">政治アカデメイア</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/business/"><span>ビジネス</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/business/startups/">スタートアップ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/house/">住建・不動産</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/electronics/">エレクトロニクス</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/services/">サービス・食品</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/internet/">ネット・IT</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/consumer-products/">小売り・外食</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/health-care/">ヘルスケア</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/economy/monetary/">金融機関</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/mechanical/">自動車・機械</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/legal/">法務・ガバナンス</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/energy/">環境エネ・素材</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/mirai/">未来面</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/business/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19092502">Bizレーダー</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090324">コンフィデンシャル</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18062100">仕事人秘録</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090317">経営者ブログ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090310">価格は語る</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18070300">データで読む消費</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090309">消費を斬る</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17101909">池上彰</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090300">法務インサイド</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090316">就活</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18053003">ヒットのクスリ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19031500">食の進化論</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20040600">事業承継</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=20040601">DXTREND</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/markets/"><span>マーケット</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/kabu/">株式</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/ranking/">ランキング</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/kigyo/">企業業績・財務</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/fund/">投資信託</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/kawase/">為替・金利</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/marketdata/top/">世界の市況</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/shohin/">商品</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/ir/">企業IR</a></li>
+    <li class="subpage-gnav-sublist__item">
+        <a href="/markets/kaigai/">海外</a></li>
+    <li class="subpage-gnav-sublist__aside">
+        <a href="/markets/column/" class="subpage-gnav-sublist__aside-title">コラム
+            <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/kigyo/page/?uah=DF_SEC8_C2_030">記者の目</a></li>
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/kabu/page/?uah=DF_SEC8_C1_080">マーケット反射鏡</a></li>
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/kabu/page/?uah=DF_SEC8_C1_120">スクランブル</a></li>
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/column/page/?uah=DF_SEC8_C6_190">マネー底流潮流</a></li>
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/column/page/?uah=DF_SEC8_C6_030">ポジション</a></li>
+            <li class="subpage-gnav-sublist__aside-item">
+                <a href="/markets/column/page/?uah=DF_SEC8_C6_200">ポジションフラッシュ</a></li>
+        </ul>
+    </li>
+</ul>
+
+</div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/technology/"><span>テクノロジー</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/technology/driverless/">自動運転</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/startups/">スタートアップ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/ai/">ＡＩ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/fintech/">フィンテック</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/leading-edge/">科学＆新技術</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/business/energy/">環境エネ・素材</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/iot/">ＩｏＴ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/sharing/">シェアエコノミー</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/mobile/">モバイル・５Ｇ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/technology/bp-promptreport/">BP速報</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/technology/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19092665">スタートアップGlobe</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18030600">CBインサイツ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19052600">36Kr</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19092666">DealStreetAsia</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17090311">モバイルの達人</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19053000">教えて山本さん！</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/international/"><span>国際</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/international/china/">中国・台湾</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/america/">北米</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/korea/">朝鮮半島</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/csamerica/">中南米</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/seasia/">東南アジア</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/ft/">Financial Times</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/india-oceania/">南西ア・オセアニア</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/economist/">The Economist</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/europe/">ヨーロッパ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/asiabiz/">アジアBiz</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/middleeast-africa/">中東・アフリカ</a></li><li class="subpage-gnav-sublist__aside" >
+            <a href="/international/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17101600">習政権ウオッチ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18040903">Asia Analysis</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18061500">朝鮮半島ファイル</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=17110100">グローバルViews</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/opinion/"><span>オピニオン</span></a><div class="subpage-gnav__sub">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/opinion/editorial/">社説</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/economist360/">エコノミスト360°視点</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/shunjyu/">春秋</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/global/">グローバルオピニオン</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/deepinsight/">Deep Insight</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/asia/">Asiaを読む</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/nikkei-views/">Nikkei Views</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/nikkey/">ニッキィの大疑問</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/kakushin/">核心</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/takken/">私見卓見</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/jihyo/">中外時評</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/comemo/">COMEMO</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/jiron/">時論・創論・複眼</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/ft/">FT</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/global-economics-trends/">Global Economics Trends</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/international/economist/">The Economist</a></li><li class="subpage-gnav-sublist__aside"  />
+                    <li class="subpage-gnav-sublist__item">
+            <a href="/opinion/commentator/">本社コメンテーター</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/ft-commentators/">FT commentators</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/opinion/senior-writer/">編集委員</a></li></ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/sports/"><span>スポーツ</span></a><div class="subpage-gnav__sub">
+        <ul class="subpage-gnav-sublist">
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/npb/"><span>プロ野球</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/mlb/"><span>ＭＬＢ</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/soccer/"><span>サッカー</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/golf/"><span>ゴルフ</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_C8____"><span>フィギュア</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_CE____"><span>ラグビー</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_CA____"><span>相撲</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_CB____"><span>競馬</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_C9____"><span>高校野球</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_CC____"><span>格闘技</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/other/?uah=DF_SEC4_CZ____"><span>その他スポーツ</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="https://r.nikkei.com/tokyo2020">
+                    <span>Tokyoオリパラ</span>
+                </a>
+            </li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="/sports/column/"><span>コラム</span></a></li>
+        </ul>
+    </div>
+</li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/society/"><span>社会・くらし</span></a><div class="subpage-gnav__sub subpage-gnav__sub--reverse">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2">
+<li class="subpage-gnav-sublist__item">
+            <a href="/society/life/">生活</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/society/diversity/">ダイバーシティ</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/society/medical-health/">医療・健康</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/theme/?dw=20010700">The STYLE</a></li>
+            <li class="subpage-gnav-sublist__aside" >
+            <a href="/society/column/" class="subpage-gnav-sublist__aside-title">コラム
+                    <i class="m-wficon arrowRight"></i></a><ul class="subpage-gnav-sublist__aside-list">
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18122801">ドキュメント日本</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19082800">Answers</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19053103">スコープ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19053104">ひと・まち探訪</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19053102">風紋</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19032200">天気のなぞ</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=19053101">電子の森</a></li>
+                    <li class="subpage-gnav-sublist__aside-item">
+                            <a href="/theme/?dw=18122800">ヒトシズク</a></li>
+                    </ul>
+            </li>
+    </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/local/"><span>地域</span></a><div class="subpage-gnav__sub subpage-gnav__sub--reverse">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--col2 subpage-gnav-sublist--colspan2">
+<li class="subpage-gnav-sublist__item"><a href="/local/hokkaido/">北海道<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"></li>
+                <li class="subpage-gnav-sublist__item"><a href="/local/tohoku/">東北<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/aomori/">青森</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/iwate/">岩手</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/akita/">秋田</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/miyagi/">宮城</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/yamagata/">山形</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/fukushima/">福島</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/kanto/">関東<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/ibaraki/">茨城</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/tochigi/">栃木</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/gunma/">群馬</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/saitama/">埼玉</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/chiba/">千葉</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/tokyo/">東京</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kanagawa/">神奈川</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/yamanashi/">山梨</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/shinetsu/">信越<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/niigata/">新潟</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/nagano/">長野</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/chubu/">中部<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/shizuoka/">静岡</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/aichi/">愛知</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/gifu/">岐阜</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/mie/">三重</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/hokuriku/">北陸<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/toyama/">富山</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/ishikawa/">石川</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/fukui/">福井</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/kansai/">関西<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/shiga/">滋賀</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kyoto/">京都</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/osaka/">大阪</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/hyogo/">兵庫</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/nara/">奈良</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/wakayama/">和歌山</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/chugoku/">中国<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/tottori/">鳥取</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/shimane/">島根</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/okayama/">岡山</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/hiroshima/">広島</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/yamaguchi/">山口</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/shikoku/">四国<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kagawa/">香川</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/tokushima/">徳島</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/ehime/">愛媛</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kochi/">高知</a></li></ul></li><li class="subpage-gnav-sublist__item"><a href="/local/kyushu-okinawa/">九州・沖縄<i class="m-wficon arrowRight"></i></a></li><li class="subpage-gnav-sublist__item"><ul class="subpage-gnav-sublist-inline"><li class="subpage-gnav-sublist-inline__item" ><a href="/local/fukuoka/">福岡</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/saga/">佐賀</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/nagasaki/">長崎</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/oita/">大分</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kumamoto/">熊本</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/miyazaki/">宮崎</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/kagoshima/">鹿児島</a></li><li class="subpage-gnav-sublist-inline__item" ><a href="/local/okinawa/">沖縄</a></li></ul></li></ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="/culture/"><span>文化</span></a><div class="subpage-gnav__sub subpage-gnav__sub--reverse">
+                    <ul class="subpage-gnav-sublist subpage-gnav-sublist--culture">
+<li class="subpage-gnav-sublist__item">
+            <a href="/culture/cover/">カバーストーリー</a></li><li class="subpage-gnav-sublist__item">
+            <a href="https://r.nikkei.com/culture/autobiography">私の履歴書</a>
+                </li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/ourai/">文化往来</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/arts/">美の十選</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/artreview/">アートレビュー</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/reading/">読書</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/go-shogi/">囲碁・将棋</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/culture/essay/">エッセー</a></li><li class="subpage-gnav-sublist__item">
+            <a href="/theme/?dw=19090900">伊集院静「ミチクサ先生」</a></li>
+            <li class="subpage-gnav-sublist__item">
+            <a href="/theme/?dw=20121000">荻原浩「ワンダーランド急行」</a></li>
+            <li class="subpage-gnav-sublist__item">
+            <a href="/theme/?dw=19120500">朝井まかて「秘密の花壇」</a></li>
+            </ul></div>
+            </li>
+            <li class="subpage-gnav__listitem subpage-gnav__listitem--has-sub"><a href="https://style.nikkei.com/?n_cid=LMNST004"><span>ライフ</span></a><div class="subpage-gnav__sub subpage-gnav__sub--reverse">
+        <ul class="subpage-gnav-sublist">
+            <li class="subpage-gnav-sublist__item">
+                <a href="https://style.nikkei.com/?n_cid=LMNST004"><span>NIKKEI STYLE</span></a></li>
+            <li class="subpage-gnav-sublist__item">
+                <a href="https://style.nikkei.com/plus1?n_cid=LMNST004"><span>NIKKEI プラス１</span></a></li>
+        </ul>
+    </div>
+</li>
+        </ul>
+        <div id="rightSearchObj" class="subpage-gnav__search js-subpage-gnav__search">
+            <form name="globalNaviSearchForm" action="https://r.nikkei.com/search" onsubmit="return checkText();return false;" method="get" >
+                <input id="serachTextInput" name="keyword" type="search" placeholder="記事・株価を検索" class="subpage-gnav__search-text js-subpage-gnav__search-text" maxlength="100" autocomplete="off">
+                <input id="loupeClickBtn" onclick="return loupeSubmitForm();return false;" type="button" class="subpage-gnav__search-button">
+                <div class="subpage-gnav__search-list" id="inputTextSearchList" style="display: none;" >
+                    <a class="subpage-gnav__search-action subpage-gnav__search-action--news js-subpage-gnav__search-action" onclick="clickRsearch();return false;" href="https://r.nikkei.com/search" aria-selected="true">電子版を検索<span class="m-wficon arrowRight"></span></a>
+                    <a class="subpage-gnav__search-action subpage-gnav__search-action--nkd js-subpage-gnav__search-action" onclick="clickNKDsearch();return false;" href="/nkd/search/" aria-selected="false"><span class="m-wficon nkd"></span>会社情報を検索<span class="m-wficon arrowRight"></span></a>
+                </div>
+            </form>
+            <script>
+                function checkText() {
+                    var textInput = document.getElementById('serachTextInput').value;
+                    
+                    if(textInput.length === 0) {
+                        return true;
+                    }
+                    var pattern = /^[0-9]{4}$/;
+                    var result = textInput.match(pattern);
+                    if(result && textInput >= '0000' && textInput <= '9999') {
+                        $('input[id="serachTextInput"]').attr('name', 'searchKeyword');
+                        document.globalNaviSearchForm.action = '/nkd/search/';
+                    }
+                    
+                    var attrNews = $('.subpage-gnav__search-action--news').attr('aria-selected');
+                    var attrNkd = $('.subpage-gnav__search-action--nkd').attr('aria-selected');
+                    if (attrNews == 'true') {
+                        $('input[id="serachTextInput"]').attr('name', 'keyword');
+                        document.globalNaviSearchForm.action = 'https://r.nikkei.com/search';
+                    }
+                    if (attrNkd == 'true') {
+                        $('input[id="serachTextInput"]').attr('name', 'searchKeyword');
+                        document.globalNaviSearchForm.action = '/nkd/search/';
+                    }
+                    return true;
+                }
+                function loupeSubmitForm(){
+                	
+                    var attrNews = $('.subpage-gnav__search-action--news').attr('aria-selected');
+                    var attrNkd = $('.subpage-gnav__search-action--nkd').attr('aria-selected');
+                    if (attrNews == 'true') {
+                        $('input[id="serachTextInput"]').attr('name', 'keyword');
+                        document.globalNaviSearchForm.action = 'https://r.nikkei.com/search';
+                    }
+                    if (attrNkd == 'true') {
+                        $('input[id="serachTextInput"]').attr('name', 'searchKeyword');
+                        document.globalNaviSearchForm.action = '/nkd/search/';
+                    }
+                    $('form[name="globalNaviSearchForm"]').submit();
+                }
+                function clickRsearch() {
+                    $('input[id="serachTextInput"]').attr('name', 'keyword');
+                    document.globalNaviSearchForm.action = 'https://r.nikkei.com/search';
+                    $('form[name="globalNaviSearchForm"]').submit();
+                }
+                function clickNKDsearch() {
+                    $('input[id="serachTextInput"]').attr('name', 'searchKeyword');
+                    document.globalNaviSearchForm.action = '/nkd/search/';
+                    $('form[name="globalNaviSearchForm"]').submit();
+                }
+            </script>
+        </div>
+        <script>
+            
+            $(document).bind('click touchend', function(event) {
+                if (!$(event.target).closest('#rightSearchObj').length) {
+                    $('#inputTextSearchList').hide();
+                    $('#rightSearchObj').removeClass('js-subpage-gnav__search--focus');
+                }
+            });
+            
+            $('.js-subpage-gnav__search-text').focus(function() {
+                var textInput = document.getElementById('serachTextInput').value;
+                if(textInput.length > 0){
+                    $('#inputTextSearchList').show();
+                    $('#rightSearchObj').addClass('js-subpage-gnav__search--focus');
+                }
+            });
+            var serachTextInput = document.getElementById('serachTextInput');
+            
+            serachTextInput.oninput = function(){
+                exp = "^[0-9]{4}$";
+                var textInput = document.getElementById('serachTextInput').value;
+                if(textInput.length > 0){
+                    $('#inputTextSearchList').show();
+                    $('#rightSearchObj').addClass('js-subpage-gnav__search--focus');
+                }else{
+                    $('#inputTextSearchList').hide();
+                    $('#rightSearchObj').removeClass('js-subpage-gnav__search--focus');
+                }
+                if(textInput.match(exp)) {
+                    $('.subpage-gnav__search-action--nkd').after($('.subpage-gnav__search-action--news'));
+                    $('.subpage-gnav__search-action--nkd').attr("aria-selected","true");
+                    $('.subpage-gnav__search-action--news').attr("aria-selected","false");
+                }else{
+                    $('.subpage-gnav__search-action--news').after($('.subpage-gnav__search-action--nkd'));
+                    $('.subpage-gnav__search-action--nkd').attr("aria-selected","false");
+                    $('.subpage-gnav__search-action--news').attr("aria-selected","true");
+                }
+            };
+            
+            $(function(){
+                $('.js-subpage-gnav__search-action').mouseover(function(){
+                    var attr = $(this).attr();
+                    if (attr !== true) {
+                        $(this).attr("aria-selected","true");
+                        $(this).siblings(".js-subpage-gnav__search-action").attr("aria-selected","false");
+                    }
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#rightSearchObj").keydown(function(){
+                    if (event.keyCode === 38 || event.keyCode === 40) {
+                        event.preventDefault();
+                    }
+                    if (!$('#inputTextSearchList').is(':hidden')){
+                        var str = event.keyCode;
+                        var attr0 = $('.js-subpage-gnav__search-action').eq(0);
+                        var attr1 = $('.js-subpage-gnav__search-action').eq(1);
+                        if (str === 38){
+                            if (attr0 !== true) {
+                                $('.js-subpage-gnav__search-action').eq(1).attr("aria-selected","false");
+                                $('.js-subpage-gnav__search-action').eq(0).attr("aria-selected","true");
+                            }
+                        }
+                        if (str === 40){
+                            if (attr1 !== true) {
+                                $('.js-subpage-gnav__search-action').eq(0).attr("aria-selected","false");
+                                $('.js-subpage-gnav__search-action').eq(1).attr("aria-selected","true");
+                            }
+                        }
+                        if (str === 13){
+                            $('.js-subpage-gnav__search-action[aria-selected="true"]').click();
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+<script>
+var ua = navigator.userAgent;
+var is_sp = (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0);
+if(is_sp) {
+    var $naviLink = $('.subpage-gnav__listitem > a');
+    window.hrefList = [];
+    $naviLink.each(function() {
+        window.hrefList.push($(this).attr('href'));
+        $(this)
+            .attr('href', 'javascript:void(0)');
+    });
+    $('.subpage-gnav-sublist__item > a').each(function() {
+       var $innerLink = $(this);
+       $innerLink
+           .css('display', 'block');
+       if($innerLink.attr('target')) {
+           $innerLink
+               .removeAttr('target');
+       }
+    });
+    var clickCnt = 0, targetIndexTmp = -1, menuHeight = 0;
+    $naviLink.click(function() {
+        var $this = $(this);
+        $naviLink.each(function() {
+            $(this)
+                .parent()
+                .removeClass('js-subpage-gnav__listitem--current')
+                .find('.subpage-gnav__sub')
+                .css({'opacity': 0, 'overflow': 'hidden'});
+        });
+        if(targetIndexTmp !== $naviLink.index(this)) {
+            clickCnt = 0;
+        }
+        targetIndexTmp = $naviLink.index(this);
+        $this
+            .data('click', ++clickCnt)
+            .parent()
+            .addClass('js-subpage-gnav__listitem--current')
+            .find('.subpage-gnav__sub')
+            .css({'opacity': 1, 'overflow': 'initial'});
+        if($this.data('click') === 2 || $naviLink.index(this) === 12) {
+            $this.data('click', 0);
+            location.href = window.hrefList[$naviLink.index(this)];
+        } else if($('.l-proTimeline_inner').length > 0) {
+            $('body')
+                .css('zoom', 1.001);
+            var ti = setInterval(function() {
+                $('body')
+                    .css('zoom', 1);
+                clearInterval(ti);
+            }, 20);
+        }
+    });
+} else {
+    $('.subpage-gnav__listitem').filter('.noMenu').hover(function(){ $(this).addClass('js-subpage-gnav__listitem--current'); }, function(){ $(this).removeClass('js-subpage-gnav__listitem--current'); });
+    var $menu = $('.subpage-gnav__listitem').not('.noMenu');
+    
+    var $menu_hovered;
+    $menu.mouseenter(function(e){
+        var $this = $(this);
+        $menu_hovered = $this;
+        if($this.data('leavetimer')){
+            clearInterval($this.data('leavetimer'));
+            $this.data('leavetimer', null);
+        }
+        if($menu.hasClass('js-subpage-gnav__listitem--current') == false){
+            $this.addClass('js-subpage-gnav__listitem--current');
+        }
+    }).mouseleave(function(e){
+        var $this = $(this);
+        $menu_hovered = null;
+        $this.data('leavetimer', setTimeout(function(obj){ obj.removeClass('js-subpage-gnav__listitem--current'); if($menu_hovered) $menu_hovered.trigger('mouseenter'); }, 0, $this));
+    });
+}
+</script>
+<script>
+    </script><div id="JSID_key_popupBody" style="display:none;"></div><div class="l-miH05 ">
+    <div class="l-miH05_inner">
+        <div class="l-miH05_main">
+            <ul class="l-miH04D">
+                    <li class="l-miH04D_item active">
+                        <a href="/markets/kabu/"><span class="l-miH04D_text">株式</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/kigyo/"><span class="l-miH04D_text">企業</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/kawase/"><span class="l-miH04D_text">為替・金利</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/shohin/"><span class="l-miH04D_text">商品</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/kaigai/"><span class="l-miH04D_text">海外</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/ranking/"><span class="l-miH04D_text">ランキング</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/column/"><span class="l-miH04D_text">コラム</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/fund/"><span class="l-miH04D_text">投資信託</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/marketdata/top/"><span class="l-miH04D_text">世界の市況</span></a></li>
+                    <li class="l-miH04D_item ">
+                        <a href="/markets/ir/"><span class="l-miH04D_text">企業IR</span></a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+<script type="text/javascript">
+    <!--
+    $(function() {
+        $('#js-ticker_list').vTicker({
+            pause: 7500,
+            mousePause: true,
+            animate: true,
+            padding: 0
+        });
+
+    });
+
+    function mousePauseOn(){
+        $('#js-ticker_list').vTicker('pause', true);
+    };
+
+    function mousePauseOff(){
+        $('#js-ticker_list').vTicker('pause', false);
+    };
+    //-->
+    </script>
+
+        <div id="MARKET_BAR" class="marketIndex4" onmouseover="mousePauseOn()" onmouseout="mousePauseOff()"><div id="js-ticker_list"><ul>
+                    <li>
+                        <div class="m-marketIndex_box cm-clear" data-id="JSID_JpnIndex" ><a href="/markets/worldidx/chart/nk225/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経平均(円)：</span><span class="m-marketIndex_box_time">3/1&nbsp;大引</span></div><div class="m-marketIndex_box_num">29,663.50</div><div class="m-marketIndex_percent a-fb bg-plus">+697.49</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenDollarExchange" ><a href="/markets/kawase/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ドル(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">106.71-73</div><div class="m-marketIndex_percent a-fb bg-plus">+0.63円安</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_DowJones" ><a href="/markets/kaigai/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">NYダウ(ドル)：</span><span class="m-marketIndex_box_time">2/26&nbsp;終値</span></div><div class="m-marketIndex_box_num">30,932.37</div><div class="m-marketIndex_percent a-fb bg-minus">-469.64</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_FTSE100Index" ><a href="/markets/kaigai/page/?uah=DF_SEC8_C5_090"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">FTSE100：</span><span class="m-marketIndex_box_time">3/1 12:38&nbsp;</span></div><div class="m-marketIndex_box_num">6,563.53</div><div class="m-marketIndex_percent a-fb bg-plus">+80.10</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_SHCOMP" ><a href="/markets/kaigai/page/?uah=DF_SEC8_C5_100"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">上海総合：</span><span class="m-marketIndex_box_time">3/1&nbsp;終値</span></div><div class="m-marketIndex_box_num">3,551.40</div><div class="m-marketIndex_percent a-fb bg-plus">+42.32</div></a></div>
+                                </li>
+                        <li>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_JpnIndex" ><a href="/markets/worldidx/chart/nk225/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経平均(円)：</span><span class="m-marketIndex_box_time">3/1&nbsp;大引</span></div><div class="m-marketIndex_box_num">29,663.50</div><div class="m-marketIndex_percent a-fb bg-plus">+697.49</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenDollarExchange" ><a href="/markets/kawase/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ドル(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">106.71-73</div><div class="m-marketIndex_percent a-fb bg-plus">+0.63円安</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenEuroExchange" ><a href="/markets/kawase/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ユーロ(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">128.53-55</div><div class="m-marketIndex_percent a-fb bg-minus">-0.19円高</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenPoundExchange" ><a href="/markets/kawase/crossrate/?SelDateDiff=0&amp;BaseRate=UK#PREVIOUS_RATE"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ポンド(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">148.70-76</div><div class="m-marketIndex_percent a-fb bg-plus">+0.19円安</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_DollarYuanExchange" ><a href="/markets/kawase/page/?uah=DF_SEC8_C3_140"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ドル(人民元)：</span><span class="m-marketIndex_box_time">3/1 21:46</span></div><div class="m-marketIndex_box_num">6.466-468</div><div class="m-marketIndex_percent a-fb bg-minus">-0.008元高</div></a></div>
+                                </li>
+                        <li>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_JpnIndex" ><a href="/markets/worldidx/chart/nk225/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経平均(円)：</span><span class="m-marketIndex_box_time">3/1&nbsp;大引</span></div><div class="m-marketIndex_box_num">29,663.50</div><div class="m-marketIndex_percent a-fb bg-plus">+697.49</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenDollarExchange" ><a href="/markets/kawase/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ドル(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">106.71-73</div><div class="m-marketIndex_percent a-fb bg-plus">+0.63円安</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_JPNLongTermInterestRate" ><a href="/markets/kawase/page/?uah=DF_SEC8_C3_150"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">長期金利(％)：</span><span class="m-marketIndex_box_time">3/1 16:49</span></div><div class="m-marketIndex_box_num">0.150</div><div class="m-marketIndex_percent a-fb bg-minus">-0.010</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_USLongTermInterestRate" ><a href="/markets/kawase/page/?uah=DF_SEC8_C3_160"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">米国債10年(％)：</span><span class="m-marketIndex_box_time">3/1 21:33</span></div><div class="m-marketIndex_box_num">1.435</div><div class="m-marketIndex_percent a-fb bg-plus">+0.002</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_NYCrudeOilRate" ><a href="/markets/shohin/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">NY原油(ドル)：</span><span class="m-marketIndex_box_time">3/1 7:43</span></div><div class="m-marketIndex_box_num">62.16</div><div class="m-marketIndex_percent a-fb bg-plus">+0.66</div></a></div>
+                                </li>
+                        <li>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_JpnIndex" ><a href="/markets/worldidx/chart/nk225/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経平均(円)：</span><span class="m-marketIndex_box_time">3/1&nbsp;大引</span></div><div class="m-marketIndex_box_num">29,663.50</div><div class="m-marketIndex_percent a-fb bg-plus">+697.49</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_YenDollarExchange" ><a href="/markets/kawase/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">ドル(円)：</span><span class="m-marketIndex_box_time">3/1 21:48</span></div><div class="m-marketIndex_box_num">106.71-73</div><div class="m-marketIndex_percent a-fb bg-plus">+0.63円安</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_NKA300Index" ><a href="/markets/worldidx/chart/nka300/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経アジア300：</span><span class="m-marketIndex_box_time">3/1&nbsp;終値</span></div><div class="m-marketIndex_box_num">1,829.89</div><div class="m-marketIndex_percent a-fb bg-plus">+22.07</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_NKA300iyIndex" ><a href="/markets/worldidx/chart/nka300i/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">日経Asia300－i：</span><span class="m-marketIndex_box_time">3/1&nbsp;終値</span></div><div class="m-marketIndex_box_num">1,493.65</div><div class="m-marketIndex_percent a-fb bg-plus">+24.06</div></a></div>
+                                <div class="m-marketIndex_box cm-clear" data-id="JSID_JPX400Index" ><a href="/markets/worldidx/chart/jpxnk400/"><div class="m-marketIndex_box_title"><span class="m-marketIndex_box_title_text">JPX日経400：</span><span class="m-marketIndex_box_time">3/1&nbsp;大引</span></div><div class="m-marketIndex_box_num">17,212.06</div><div class="m-marketIndex_percent a-fb bg-plus">+340.42</div></a></div>
+                                </li>
+                        </li>
+                </ul>
+                </div>
+            <div class="m-marketIndex_btn">
+                <div class="m-marketIndex_btn_prev" onclick="$('#js-ticker_list').vTicker('prev', {animate:true});"></div>
+                <div class="m-marketIndex_btn_next" onclick="$('#js-ticker_list').vTicker('next', {animate:true});"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+        <!--
+    
+        var codeDataMap = {
+            'JSID_JpnIndex':{TITLE : '日経平均(円)', LINK_URL: '/markets/worldidx/chart/nk225/'},'JSID_YenDollarExchange':{TITLE : 'ドル(円)', LINK_URL: '/markets/kawase/'},'JSID_DowJones':{TITLE : 'NYダウ(ドル)', LINK_URL: '/markets/kaigai/'},'JSID_FTSE100Index':{TITLE : 'FTSE100', LINK_URL: '/markets/kaigai/page/?uah=DF_SEC8_C5_090'},'JSID_SHCOMP':{TITLE : '上海総合', LINK_URL: '/markets/kaigai/page/?uah=DF_SEC8_C5_100'},'JSID_JpnIndex':{TITLE : '日経平均(円)', LINK_URL: '/markets/worldidx/chart/nk225/'},'JSID_YenDollarExchange':{TITLE : 'ドル(円)', LINK_URL: '/markets/kawase/'},'JSID_YenEuroExchange':{TITLE : 'ユーロ(円)', LINK_URL: '/markets/kawase/'},'JSID_YenPoundExchange':{TITLE : 'ポンド(円)', LINK_URL: '/markets/kawase/crossrate/?SelDateDiff=0&BaseRate=UK#PREVIOUS_RATE'},'JSID_DollarYuanExchange':{TITLE : 'ドル(人民元)', LINK_URL: '/markets/kawase/page/?uah=DF_SEC8_C3_140'},'JSID_JpnIndex':{TITLE : '日経平均(円)', LINK_URL: '/markets/worldidx/chart/nk225/'},'JSID_YenDollarExchange':{TITLE : 'ドル(円)', LINK_URL: '/markets/kawase/'},'JSID_JPNLongTermInterestRate':{TITLE : '長期金利(％)', LINK_URL: '/markets/kawase/page/?uah=DF_SEC8_C3_150'},'JSID_USLongTermInterestRate':{TITLE : '米国債10年', LINK_URL: '/markets/kawase/page/?uah=DF_SEC8_C3_160'},'JSID_NYCrudeOilRate':{TITLE : 'NY原油(ドル)', LINK_URL: '/markets/shohin/'},'JSID_JpnIndex':{TITLE : '日経平均(円)', LINK_URL: '/markets/worldidx/chart/nk225/'},'JSID_YenDollarExchange':{TITLE : 'ドル(円)', LINK_URL: '/markets/kawase/'},'JSID_NKA300Index':{TITLE : '日経アジア300', LINK_URL: '/markets/worldidx/chart/nka300/'},'JSID_NKA300iyIndex':{TITLE : '日経Asia300－i', LINK_URL: '/markets/worldidx/chart/nka300i/'},'JSID_JPX400Index':{TITLE : 'JPX日経400', LINK_URL: '/markets/worldidx/chart/jpxnk400/'}
+                        };
+    
+        _nk.asynchronousMarketsBar(codeDataMap, true, 300000, 'M');
+    
+    // -->
+    </script>
+<div id="CONTENTS" class="bs-ms">
+		<div id="CONTENTS_BODY">
+			<div id="CONTENTS_OUTER">
+				<div id="CONTENTS_INNER" class="cmn-clearfix">
+					<div id="JSID_baseBreaking_normal">
+    <div class="cmn-breaking_news cmn-clearfix" style="display: none;">
+        <div class="cmnc-title cmnc-level2 cmnc-type1">
+            <h2>
+                <span class="cmnc-time  JSID_time">1日 0:00</span>
+                <span class="cmnc-headline JSID_body"></span>
+            </h2>
+        </div>
+        <div class="cmnc-open" style="display: none;">
+            <a href="javascript:void(0)" class="JSSTL_mousePointer" onclick="_nk.click(this,event,[['JSID_actBreaking_Open',{JSID_dataType:'normal'}]]);return false">再表示</a>
+        </div>
+        <div class="cmnc-close" style="display: none;">
+            <a href="javascript:void(0)" class="JSSTL_mousePointer" onclick="_nk.click(this,event,[['JSID_actBreaking_Close',{JSID_dataType:'normal'}]]);return false">閉じる</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+_nkconf.ID_BREAKINGNEWS.push([["JSID_baseBreaking_normal",{"JSID_dataBreaking_KijiKey":"e","JSID_dataBreaking_kijiValue":",20000101000000","JSID_dataBreaking_motion":false,"JSID_dataBreaking_closeKey":"f"}]],[["JSID_baseBreaking_url","/async/async.do/?ae=JO_CM_BREAKINGALL&sv=NX"]]);
+_nkconf.ID_BREAKINGNEWS.push([["JSID_baseBreaking_emergency",{"JSID_dataBreaking_KijiKey":"ak","JSID_dataBreaking_kijiValue":",20000101000000","JSID_dataBreaking_motion":false,"JSID_dataBreaking_closeKey":"al"}]],[["JSID_baseBreaking_url","/async/async.do/?ae=JO_CM_BREAKINGALL&sv=NX"]]);
+_nkconf.ID_BREAKINGNEWS.push([["JSID_baseBreaking_small",{"JSID_dataBreaking_KijiKey":"g","JSID_dataBreaking_kijiValue":",20000101000000","JSID_dataBreaking_motion":false,"JSID_dataBreaking_closeKey":"h"}]],[["JSID_baseBreaking_url","/async/async.do/?ae=JO_CM_BREAKINGALL&sv=NX"]]);
+</script>
+<div class="cmn-expand_banner">
+					<div id="2167_1624">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2167_1624');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+			<div id="CONTENTS_SUB_TOP">
+						<div class="m-block history a-mb15">
+    <div class="m-historyBox">
+        <div class="m-historyBox_main">
+            <div class="m-historyBox_main_inner">
+                <div class="m-historyBox_main_header">
+                    <h2 class="m-historyBox_main_header_text"><a href="/markets/kabu/stklist/?n_cid=DSMMAA12"><span class="m-wficon time"></span>
+                                <span>閲覧履歴</span></a></h2>
+                    <div class="m-historyBox_main_header_folder">
+                        <a href="/markets/company/port/shisan.aspx?n_cid=DSMMAA12"><span class="m-wficon folder"></span>
+                                <span class="a-vab">銘柄フォルダ</span></a></div>
+                </div>
+                <div class="m-historyBox_main_body">
+                    <div class="m-historyBox_main_body_1st">
+                        <ul class="m-historyBox_list" id="JSID_marketHistory">
+                            <div id="JSID_MEIGARA_VIEW"></div>
+                            <div id="JSID_MEIGARA_VIEW1"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+<script type="text/javascript">
+                    var meigaraInfoList = '';
+                    meigaraInfoList = meigaraInfoList.replace('(','（').replace(')','）');
+                    _nk.onFuncReady("_nk.market.setMeigaraInfo('', '/async/async.do/?MEIGARA_SIZE=9&ae=P_MM_MEIGARA_RIREKIJS&sv=NX', 'JSID_MEIGARA_VIEW','" +  meigaraInfoList + "', 'false', '30', '/async/async.do/?ae=JO_MM_MEIGARA_RIREKI_COOKIE&sv=NX', '9', 'true','2')");
+                </script>
+            <ul class="m-historyBox_linkList">
+                <li>
+                    <a href="/nkd/?n_cid=DSMMAA12"><span class="a-vam">日経会社情報</span></a></li>
+                <li>
+                    <a href="/markets/kigyo/disclose/?n_cid=DSMMAA12"><span class="a-vam">適時開示</span></a></li>
+                <li>
+                    <a href="/markets/kigyo/yutai/?n_cid=DSMMAA12"><span class="a-vam">株主優待</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    
+    _nk.onFuncReady("_nk.market.deleteCookie('.www.nikkei.com')");
+</script><div class="cmn-sub_square_banner">
+					<div id="ADVERTISE_RECTANGLE1">
+						<div>
+							<div id="2168_1624">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2168_1624');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+					</div>
+				</div>
+			<div class="cmn-sub_section_box" data-rn-inview-track="マーケット 記事ランキング">
+			<h2 class="cmnc-title  cmn-clearfix">
+				<span class="cmnc-date">3/1 21:00更新</span>
+				マーケット 記事ランキング
+			</h2>
+
+		<div id="JSID_baseTabSection" class="cmnc-body">
+				<ul class="cmnc-navigation cmn-clearfix">
+					<li class="cmnc-today cmnc-active">
+					<a href="javascript:void(0)"  onclick="_nk.click(this,event,[['JSID_actTab',{JSID_dataTabID:'#JSID_baseTabSection'}]]); return false">今日</a><span class="JSID_urlData" style="display:none;">#JSID_key_today</span></li>
+					<li class="cmnc-yesterday">
+					<a href="javascript:void(0)"  onclick="_nk.click(this,event,[['JSID_actTab',{JSID_dataTabID:'#JSID_baseTabSection'}]]); return false">昨日</a><span class="JSID_urlData" style="display:none;">#JSID_key_yesterday</span></li>
+					<li class="cmnc-day_before_yesterday">
+					<a href="javascript:void(0)"  onclick="_nk.click(this,event,[['JSID_actTab',{JSID_dataTabID:'#JSID_baseTabSection'}]]); return false">一昨日</a><span class="JSID_urlData" style="display:none;">#JSID_key_before_yesterday</span></li>
+				</ul>
+
+				<ol class="cmnc-ranking JSID_key_today">
+					<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00017_01032021000000&quot;}">
+							1位:
+							<a href="/article/DGXZQOGD00017_R00C21A3000000/">「日銀株」がストップ高　政策点検控え動意付く？<span class="m-iconMember">［有料会員限定］</span></a></li>
+					<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD25BWY025022021000000&quot;}">
+							2位:
+							<a href="/article/DGXZQOGD25BWY0V20C21A2000000/">役員報酬算定法、主要企業の5割非開示　法改正で義務に<span class="m-iconMember">［有料会員限定］</span></a></li>
+					<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD010YZ001032021000000&quot;}">
+							3位:
+							<a href="/article/DGXZQOGD010YZ0R00C21A3000000/">日経平均一時700円高　荒れる相場は「三寒四温」<span class="m-iconMember">［有料会員限定］</span></a></li>
+					<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00001_01032021000000&quot;}">
+							4位:
+							<a href="/article/DGXZQOGD00001_R00C21A3000000/">日経平均反発、終値697円高の2万9663円　米金利上昇一服</a></li>
+					<li class="cmnc-last" data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+							5位:
+							<a href="/article/DGXZASS0ISS16_R00C21A3000000/">東証大引け　反発し697円高　米金利の上昇一服で</a></li>
+					</ol>
+
+				<ol class="cmnc-ranking JSID_key_yesterday" style="display: none;">
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								1位:
+								<a href="/article/DGXZQOGN235EM0T20C21A2000000/">バフェット氏手紙、保有上位に伊藤忠　債券投資に警告も<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								2位:
+								<a href="/article/DGXZQOFZ186U40Y1A210C2000000/">日本株、3万円の先　荒れ相場を恐れないプロの戦略は<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								3位:
+								<a href="/article/DGXZQODZ287ZK0Y1A120C2000000/">外食、非接触・郊外に活路　主要100社の閉店2700に倍増<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								4位:
+								<a href="/article/DGXZQOGN2741R0X20C21A2000000/">バフェット氏投資会社、自社株買い最高　大型買収困難で<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li class="cmnc-last" data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								5位:
+								<a href="/article/DGXZQOGD2724F0X20C21A2000000/">金利上昇で緩和マネー転機　成長株下落、資産膨張崩れる<span class="m-iconMember">［有料会員限定］</span></a></li>
+						</ol>
+				<ol class="cmnc-ranking JSID_key_before_yesterday" style="display: none;">
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								1位:
+								<a href="/article/DGXZQOGD267400W1A220C2000000/">リクルート、銀座の本社ビルをヒューリックに売却<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								2位:
+								<a href="/article/DGXZQOGN270EE0X20C21A2000000/">NYダウ469ドル安　金利上昇一服もなお警戒感</a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								3位:
+								<a href="/article/DGXZQOGN00002_X20C21A2000000/">NYダウ続落し469ドル安　ファンドが損失限定の売り</a></li>
+						<li data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								4位:
+								<a href="/article/DGXZQOGD00050_W1A220C2000000/">株1000円超安、アベノミクス後7回目　過去のきっかけは<span class="m-iconMember">［有料会員限定］</span></a></li>
+						<li class="cmnc-last" data-rn-track="hub-ranking-markets" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASS0ISS16_01032021000000&quot;}">
+								5位:
+								<a href="/article/DGXZQODB271BL0X20C21A2000000/">米金利上昇、緩和「出口論」なき混乱　市場と対話難しく<span class="m-iconMember">［有料会員限定］</span></a></li>
+						</ol>
+				</div>
+		</div>
+	<script type="text/javascript">
+_nk.tab("#JSID_baseTabSection",{JSID_dataTabHere:'cmnc-active',JSID_dataTabClassHere:'ul.cmnc-navigation',JSID_dataTabLink:'a',JSID_dataTabNow:'..',JSID_dataTabBody:'.',JSID_dataTabAnimate:false,JSID_setTab:'.',JSID_loadTab_JSID_key_today:true,JSID_loadTab_JSID_key_yesterday:true,JSID_loadTab_JSID_key_before_yesterday:true});
+</script>
+<div class="m-block todayStockMarket">
+        <div class="m-headline">
+            <h2 class="m-headline_text a-fs12">
+                <a href="/markets/kabu/japanidx/">1日の株式市場</a></h2>
+        </div>
+        <div class="m-article">
+        <dl class="m-todayStockMarket_list">
+            <dt class="m-todayStockMarket_list_title">時価総額（普通株式ベース）</dt>
+            <dd class="m-todayStockMarket_list_data">
+            <ul>
+                <li class="cmn-clearfix a-mb8">
+                                    <span class="m-todayStockMarket_list_data_title">東証１部</span>
+                                    <span class="m-todayStockMarket_list_data_money">7,136,426億円</span>
+                                </li>
+                            <li class="cmn-clearfix a-mb8">
+                                    <span class="m-todayStockMarket_list_data_title">東証２部</span>
+                                    <span class="m-todayStockMarket_list_data_money">57,120億円</span>
+                                </li>
+                            <li class="cmn-clearfix a-mb8">
+                                    <span class="m-todayStockMarket_list_data_title">ジャスダック</span>
+                                    <span class="m-todayStockMarket_list_data_money">105,844億円</span>
+                                </li>
+                            </ul>
+            </dd>
+            <dt class="m-todayStockMarket_list_title">東証１部全銘柄の指標</dt>
+            <dd class="m-todayStockMarket_list_stock">
+            <table class="m-todayStockMarket_list_stock_table">
+                <thead>
+                    <tr><th>連結</th><th>前期基準</th><th>予想</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th class="a-pt8">純資産倍率</th>
+                        <td class="a-pt8">1.37倍</td>
+                        <td class="a-pt8">--</td>
+                    </tr>
+                    <tr><th>株価収益率</th><td>24.41倍</td><td>24.16倍</td></tr>
+                    <tr><th>株式益回り</th><td>4.09%</td><td>4.13%</td></tr>
+                    <tr><th>配当利回り</th><td>1.77%</td> <td>1.66%</td> </tr>
+                </tbody>
+            </table>
+            </dd>
+            <dt class="m-todayStockMarket_list_title">株式市場データ</dt>
+            <dd class="m-todayStockMarket_list_link">
+              <ul class="m-marketText_link">
+                <li class="m-marketText_link_list"><a href="/markets/kabu/page/?uah=18C10800">逆日歩</a></li>
+                <li class="m-marketText_link_list sideLine"><a href="/markets/kigyo/ipo/public-price/">初値ギャップ</a></li>
+                <li class="m-marketText_link_list sideLine"><a href="/markets/kabu/newprice/">新高値</a></li>
+                <li class="m-marketText_link_list sideLine"><a href="/markets/kabu/newprice/?ba=G_T1&amp;DisplayType=1">新安値</a></li>
+              </ul>
+            </dd>
+        </dl>
+        </div>
+    </div>
+<div class="m-block infoPR">
+                <div class="m-box info">
+                    <div class="m-box_head"><a href="https://www.nikkei.com/promotion/about/contents/?n_cid=DSPRM1RC01" target="_self"><span class="m-box_head_icon"><span class="m-wficon beginner"></span></span><span class="a-vam">あなたに合った電子版の使い方をご紹介</span><span class="m-box_end_icon"><span class="m-wficon arrowRight"></span></span></a></div>
+                    <p class="m-box_body"><a href="https://www.nikkei.com/promotion/?n_cid=DSPRM1RC01" target="_self">初回1カ月無料体験、実施中！</a></p></div>
+            </div>
+        <div class="cmn-sub_market_mm a-mb16">
+        <div class="m-headline" data-rn-track="r-latest-market-info">
+            <h2 class="m-headline_text a-fs12"><a href="/markets/kabu/">最新の市場情報</a></h2>
+                    <div class="m-headline_aside"><span class="a-vam">「※」は20分以上遅延</span></div>
+                </div>
+        <table cellspacing="0" class="cmnc-nikkei_stock">
+            <tbody>
+
+                <tr>
+                    <th data-rn-track="r-latest-market-info-nikkei225">
+                        <a href="/markets/worldidx/chart/nk225/">日経平均株価(円)</a></th>
+                    <td class="cmnc-nubmer"><span class="a-fb a-fs16">29,663.50</span></td>
+                            <td class="cmnc-day_before"><span class="cmn-plus">+697.49</span></td>
+                        </tr>
+
+                <tr>
+                    <th data-rn-track="r-latest-market-info-nikkei-futures">
+                        日経平均先物(円)<br>大取,21/03月&nbsp;※</th>
+                    <td class="cmnc-nubmer"><span class="a-fb a-fs14">29,580</span></td>
+                            <td class="cmnc-day_before"><span class="cmn-plus">+330</span></td>
+                        </tr>
+
+                </tbody>
+            </table>
+    </div>
+
+    <div class="cmn-sub_market_mm a-mb16">
+       <span data-rn-track="r-latest-market-info-gyoseki-news" class="cmn-link_index a-mr15 a-fs13"><a href="/markets/kigyo/page/?uah=18C30400">業績ニュース</a></span><span data-rn-track="r-latest-market-info-stock-material" class="cmn-link_index a-mr15 a-fs13"><a href="/markets/kabu/page/?uah=18C11000">株価材料</a></span><span data-rn-track="r-latest-market-info-reporters-eye" class="cmn-link_index a-fs13"><a href="/markets/kigyo/page/?uah=18C30100">記者の目</a></span>
+    </div>
+
+<div class="cmn-sub_market_mm a-mb16">
+		<ul class="m-newsList a-mb16">
+			<li class="a-mb8"><a href="/article/DGXZQOHD014B50R00C21A3000000/">スシローGHD、一時7%高　京樽買収で相乗効果に期待</a> <span class="cmnc-time">（3/1 20:31）</span>
+				<span class="m-iconMember">［有料会員限定］</span></li>
+			<li class="a-mb8"><a href="/article/DGXZASS0ISF12_R00C21A3000000/">株価指数先物・オプション大引け　先物が反発、コールが買われる</a> <span class="cmnc-time">（3/1 16:05）</span>
+				<span class="m-iconMember">［有料会員限定］</span></li>
+			<li class="a-mb8"><a href="/article/DGXZASS0ISST2_R00C21A3000000/">新興株1日　ジャスダック、マザーズ反発　米金利の上昇一服、投資家心理上向く</a> <span class="cmnc-time">（3/1 15:34）</span>
+				</li>
+			<li class="a-mb8"><a href="/article/DGXZASS0ISS16_R00C21A3000000/">東証大引け　反発し697円高　米金利の上昇一服で</a> <span class="cmnc-time">（3/1 15:28）</span>
+				</li>
+			</ul>
+	</div>
+<div class="m-block social">
+	<p class="m-serviceLink">
+		<a href="https://www.facebook.com/nikkei" target="_blank" title="Facebook"><span class="m-serviceLink_icon facebook"><span class="m-wficon facebook"></span></span></a><a href="https://twitter.com/nikkei" target="_blank" title="Twiiter"><span class="m-serviceLink_icon twitter"><span class="m-wficon twitter"></span></span></a><a href="https://www.nikkei.com/edit/sns/?n_cid=DSSCN001"><span class="m-serviceLink_text">アカウント一覧</span></a></p>
+</div>
+
+<div class="cmn-sub_square_banner">
+					<div id="ADVERTISE_RECTANGLE2">
+						<div>
+							<div id="2169_1624">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2169_1624');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+					</div>
+				</div>
+			<div class="m-block">
+		<style type="text/css">
+<!--
+#ncm-pickup .m-headline {margin: 0 0 7px;padding: 8px 0;border-top: #0a385b 2px solid;border-bottom: #ccc 1px dotted;}
+/*#ncm-pickup .m-headline_text {display: table-cell;font-size: 20px;font-weight: bold;vertical-align: middle;width: 100%;}*/
+#ncm-pickup .ncm-pickup_article:first-child {margin-top: 0;}
+#ncm-pickup .ncm-pickup_article:last-child {border-bottom:none;}
+#ncm-pickup .ncm-pickup_article {margin-top:8px;padding-bottom:8px;border-bottom: #ccc 1px dotted;}
+#ncm-pickup h2 a{font-size: 14px;font-weight: bold;line-height: 1.1; margin-bottom:0.5em;}
+#ncm-pickup p.m-headline_disc{font-size: 10px;line-height: 1.3; margin-bottom:0.2em;}
+#ncm-pickup h3 {font-size: 14px;font-weight: bold;line-height: 1.2; margin-bottom:0.8em;}
+#ncm-pickup h4 {font-size: 12px;font-weight: normal;line-height: 1.3;vertical-align: middle;}
+/*#ncm-pickup h5 {font-size: 10px;font-weight: normal;line-height: 1.1;vertical-align: middle; margin-bottom:0.5em;}*/
+#ncm-pickup .ncm-pickup_thumb {float: right;width: 120px;margin-left:10px;position:relative;}
+#ncm-pickup .ncm-pickup_thumb span{position:absolute;left:5px;bottom:5px;}
+#ncm-pickup p {margin-top:3px;color:#888888;font-size: 11px;}
+-->
+</style><div id="ncm-pickup">
+ <div class="m-headline">
+  <h2 class="m-headline_text">
+  <a href="https://channel.nikkei.co.jp/markets/?utm_source=nikkei&amp;utm_medium=r_c&amp;utm_campaign=nmsp" target="_blank">日経チャンネルマーケッツ</a></h2>
+  </div>
+  <p class="m-headline_disc">日経チャンネルマーケッツでは、マーケット・経済専門チャンネル日経CNBCの番組をライブ配信。配信中の番組から注目のトピックスをお届けします。</p>
+
+
+ <div class="ncm-pickup_article cmn-clearfix">
+  <a href="https://markets.nikkei-cnbc.co.jp/watch/vod/33356/portlet" target="_blank">
+   <div class="ncm-pickup_thumb">
+    <img src="//www.nikkei.com/edit/channelmarkets/202103011600.jpg?date=20210301215243" width="120" height="68">
+    <span><img src="//www.nikkei.com/edit/channelmarkets/play_button.png"></span>
+   </div>
+       <h3>コンベクシティ・イベントの発生 <span class="cmn-icon_movie">［映像あり］</span></h3>
+      <h4>日経CNBCコメンテーター 岡崎 良介</h4>
+   <p>2021年3月1日</p>
+  </a>
+ </div>
+
+
+ <div class="ncm-pickup_article cmn-clearfix">
+  <a href="https://markets.nikkei-cnbc.co.jp/watch/vod/33355/portlet" target="_blank">
+   <div class="ncm-pickup_thumb">
+    <img src="//www.nikkei.com/edit/channelmarkets/202103011604.jpg?date=20210301215243" width="120" height="68">
+    <span><img src="//www.nikkei.com/edit/channelmarkets/play_button.png"></span>
+   </div>
+       <h3>ワクチン第3便到着　52万回分、医師ら接種用 <span class="cmn-icon_movie">［映像あり］</span></h3>
+      <h4>海警法1カ月　官房長官、挑発行為「断じて容認できず」</h4>
+   <p>2021年3月1日</p>
+  </a>
+ </div>
+
+</div></div>
+<div class="cmn-sub_pr">
+							<h2 class="cmnc-title2">[PR]</h2><div class="cmnc-morelink"><a target="_blank" href="https://ps.nikkei.co.jp/trend/?n_cid=PSDB0021">一覧はこちら</a></div>
+
+				<div id="ADVERTISE_PREMIUM_PR_PR">
+					<div>
+						<ul class="cmnc-adv">
+							<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1629, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2174_1629">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2174_1629');
+			     }catch(err){}
+			 </script>
+			</div>
+			</ul>
+					</div>
+				</div>
+			</div>
+						<div class="pickUpRanking cmn-sub_n_rank">
+    <div class="m-headline"><h2 class="m-headline_text"><a href="/markets/ranking/">注目ランキング</a></h2></div>
+  <div class="stockRankingBox cmn-clerfix">
+    <div class="stockRankingBox_inside">
+        <div class="m-headline mk-ranking_title">
+            <h2 class="m-headline_text a-fs13">
+                <a href="/markets/ranking/page/?bd=accessup">検索急増</a></h2>
+        </div>
+    <div class="m-article">
+        <ol>
+        <li>１:<a href="/nkd/company/?scode=8411&amp;ba=1 " title="みずほフィナンシャルグループの株価情報">みずほＦＧ</a></li>
+            <li>２:<a href="/nkd/company/?scode=7751&amp;ba=1 " title="キヤノンの株価情報">キヤノン</a></li>
+            <li>３:<a href="/nkd/company/?scode=8306&amp;ba=1 " title="三菱ＵＦＪフィナンシャル・グループの株価情報">三菱ＵＦＪ</a></li>
+            <li>４:<a href="/nkd/company/?scode=9434&amp;ba=1 " title="ソフトバンクの株価情報">ＳＢ</a></li>
+            <li>５:<a href="/nkd/company/?scode=7201&amp;ba=1 " title="日産自動車の株価情報">日産自</a></li>
+            <li>６:<a href="/nkd/company/?scode=8058&amp;ba=1 " title="三菱商事の株価情報">三菱商</a></li>
+            <li>７:<a href="/nkd/company/?scode=8604&amp;ba=1 " title="野村ホールディングスの株価情報">野村</a></li>
+            <li>８:<a href="/nkd/company/?scode=3088&amp;ba=1 " title="マツモトキヨシホールディングスの株価情報">マツキヨＨＤ</a></li>
+            <li>９:<a href="/nkd/company/?scode=9613&amp;ba=1 " title="ＮＴＴデータの株価情報">ＮＴＴデータ</a></li>
+            <li>10:<a href="/nkd/company/?scode=8316&amp;ba=1 " title="三井住友フィナンシャルグループの株価情報">三井住友ＦＧ</a></li>
+            <li>11:<a href="/nkd/company/?scode=4689&amp;ba=1 " title="Ｚホールディングスの株価情報">ＺＨＤ</a></li>
+            <li>12:<a href="/nkd/company/?scode=9432&amp;ba=1 " title="ＮＴＴの株価情報">ＮＴＴ</a></li>
+            <li>13:<a href="/nkd/company/?scode=8301&amp;ba=9 " title="日本銀行の株価情報">日銀</a></li>
+            </ol>
+        <div class="m-moreBtn">
+            <a href="/markets/ranking/page/?bd=accessup"><span class="a-vam">50位まで表示</span><span class="m-wficon arrowRight"></span></a></div>
+        </div>
+    </div><div class="stockRankingBox_inside">
+        <div class="m-headline mk-ranking_title">
+            <h2 class="m-headline_text a-fs13">
+                <a href="/markets/ranking/page/?bd=priceup">値上がり率</a></h2>
+            <div class="m-headline_aside">
+                <span class="a-vam">東証1部</span>
+            </div>
+        </div>
+
+        <div class="m-article">
+        <ol>
+        <li>１:<a href="/nkd/company/?scode=3088" title="マツモトキヨシホールディングスの株価情報">マツキヨＨＤ</a><span class="cmn-plus">＋14.11%</span>
+            </li>
+        <li>２:<a href="/nkd/company/?scode=1964" title="中外炉工業の株価情報">中外炉</a><span class="cmn-plus">＋11.58%</span>
+            </li>
+        <li>３:<a href="/nkd/company/?scode=4390" title="アイ・ピー・エス（アイピーエス）の株価情報">アイピーエス</a><span class="cmn-plus">＋11.51%</span>
+            </li>
+        <li>４:<a href="/nkd/company/?scode=6815" title="ユニデンホールディングスの株価情報">ユニデンＨＤ</a><span class="cmn-plus">＋11.14%</span>
+            </li>
+        <li>５:<a href="/nkd/company/?scode=8291" title="日産東京販売ホールディングスの株価情報">日産東ＨＤ</a><span class="cmn-plus">＋10.00%</span>
+            </li>
+        </ol>
+        <div class="m-moreBtn"><a href="/markets/ranking/page/?bd=priceup"><span class="a-vam">50位まで表示</span><span class="m-wficon arrowRight"></span></a></div>
+        </div>
+    </div><div class="stockRankingBox_inside">
+        <div class="m-headline mk-ranking_title">
+            <h2 class="m-headline_text a-fs13">
+                <a href="/markets/ranking/page/?bd=pricedown">値下がり率</a></h2>
+            <div class="m-headline_aside">
+                <span class="a-vam">東証1部</span>
+            </div>
+        </div>
+
+        <div class="m-article">
+        <ol>
+        <li>１:<a href="/nkd/company/?scode=8918" title="ランドの株価情報">ランド</a><span class="cmn-minus">－15.38%</span>
+            </li>
+        <li>２:<a href="/nkd/company/?scode=6901" title="沢藤電機の株価情報">沢藤電</a><span class="cmn-minus">－7.88%</span>
+            </li>
+        <li>３:<a href="/nkd/company/?scode=9470" title="学研ホールディングスの株価情報">学研ＨＤ</a><span class="cmn-minus">－6.94%</span>
+            </li>
+        <li>４:<a href="/nkd/company/?scode=6078" title="バリューＨＲの株価情報">バリューＨＲ</a><span class="cmn-minus">－6.15%</span>
+            </li>
+        <li>５:<a href="/nkd/company/?scode=6191" title="エアトリの株価情報">エアトリ</a><span class="cmn-minus">－5.95%</span>
+            </li>
+        </ol>
+        <div class="m-moreBtn"><a href="/markets/ranking/page/?bd=pricedown"><span class="a-vam">50位まで表示</span><span class="m-wficon arrowRight"></span></a></div>
+        </div>
+    </div></div><div class="m-block marketText_link cmnc-others">
+        <ul class="m-marketText_link">
+            <li class="m-marketText_link_list"><a href="/markets/ranking/page/?bd=vol">売買高</a></li>
+            <li class="m-marketText_link_list sideLine"><a href="/markets/ranking/page/?bd=accessup">検索急増</a></li>
+            <li class="m-marketText_link_list sideLine"><a href="/markets/ranking/page/?bd=perlow_d">予想PER低位</a></li>
+        </ul>
+        <ul class="m-marketText_link">
+            <li class="m-marketText_link_list"><a href="/markets/ranking/page/?bd=turnover">東証売買代金</a></li>
+            <li class="m-marketText_link_list sideLine"><a href="/markets/ranking/page/?bd=caphigh">時価総額上位</a></li>
+            <li class="m-marketText_link_list sideLine"><a href="/markets/ranking/page/?bd=pbrlow">PBR低位</a></li>
+        </ul>
+    </div>
+    <div class="m-moreBtn a-fb">
+        <a href="/markets/ranking/"><span class="a-vam">注目ランキングをもっと見る</span><span class="m-wficon arrowRight"></span></a></div>
+</div>
+            </div><div id="CONTENTS_MAIN">
+
+						<div id="CONTENTS_LOCAL">
+							<div class="cmn-lc_pr">
+			<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1766, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2214_1766">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2214_1766');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+	<div class="cmn-lc_menu">
+    <ul>
+        <li>
+            <a href="/markets/kabu/">株式</a><dl>
+                        <dd><a href="/markets/kabu/page/?uah=18C10100" style="padding-top: 10px;padding-bottom: 10px;">国内株概況</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10200" style="padding-top: 10px;padding-bottom: 10px;">注目株概況</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10300" style="padding-top: 10px;padding-bottom: 10px;">スクランブル</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10400" style="padding-top: 10px;padding-bottom: 10px;">スクランブル・フラッシュ</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10500" style="padding-top: 10px;padding-bottom: 10px;">マーケット反射鏡</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10600" style="padding-top: 10px;padding-bottom: 10px;">マーケットニュース</a></dd>
+                                                    <dd><a href="/markets/kabu/japanidx/" style="padding-top: 10px;padding-bottom: 10px;">国内株式指標</a></dd>
+                                <dd><a href="/markets/kabu/newprice/" style="padding-top: 10px;padding-bottom: 10px;"> 新高値・安値</a></dd>
+                                <dd><a href="/markets/marketprice/" style="padding-top: 10px;padding-bottom: 10px;">紙面相場表<span class="cmn-icon_member">［有料会員限定］</span></a></dd>
+                                <dd><a href="/markets/kabu/historical/?hp=weekly" style="padding-top: 10px;padding-bottom: 10px;">株式週間高低</a></dd>
+                                <dd><a href="/markets/kabu/page/?uah=18C10800" style="padding-top: 10px;padding-bottom: 10px;">逆日歩</a></dd>
+                                                    <dd><a href="/markets/kabu/page/?uah=18C10900" style="padding-top: 10px;padding-bottom: 10px;">日経平均ダービー</a></dd>
+                                                    <dd><a href="/markets/kabu/marketcalendar/" style="padding-top: 10px;padding-bottom: 10px;">マーケットカレンダー</a></dd>
+                                <dd><a href="/markets/kabu/stkcomp/" style="padding-top: 10px;padding-bottom: 10px;">銘柄比較</a></dd>
+                                <dd><a href="/markets/kabu/page/?uah=18C11000" style="padding-top: 10px;padding-bottom: 10px;">株価材料</a></dd>
+                                                    <dd><a href="/markets/marketdata/top/" style="padding-top: 10px;padding-bottom: 10px;">世界の市況</a></dd>
+                                <dd><a href="http://www.radionikkei.jp/nikkeinet/" style="padding-top: 10px;padding-bottom: 10px;" target="_blank">市況ライブ[音声]</a></dd>
+                <dd><a href="http://manabow.com/?n_cid=PSDB0008" style="padding-top: 10px;padding-bottom: 10px;" target="_blank">経済を学ぼう[企画]</a></dd>
+                <dd><a href="/markets/ir/compinfo/?n_cid=PSDB0009" style="padding-top: 10px;padding-bottom: 10px;" target="_blank">企業からのお知らせ[PR]</a></dd>
+            </dl>
+        </li>
+        <li><a href="/markets/kabu/">株式</a></li>
+        <li><a href="/markets/kigyo/">企業業績・財務</a></li>
+        <li><a href="/markets/kawase/">為替・金利</a></li>
+        <li><a href="/markets/shohin/">商品</a></li>
+        <li><a href="/markets/kaigai/">海外</a></li>
+        <li><a href="/markets/ranking/">ランキング</a></li>
+        <li><a href="/markets/column/">コラム</a></li>
+        <li><a href="/markets/fund/">投資信託</a></li>
+        <li><a href="/markets/oshirase/page/?uah=DF_SEC8_T1_010">お知らせ</a></li>
+    </ul>
+</div>
+</div>
+						<div id="CONTENTS_MARROW">
+							<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10100">国内株概況</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10100&quot;}">
+						</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-headline_news">
+			<div class="cmn-photo_style2 cmn-position_right" style="width: 120px"><div class="m-figure_item"><div class="m-figure_image"><a href="/article/DGXZQOHD014B50R00C21A3000000/"><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0347916001032021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.07&fp-y=0.51&fp-z=1&h=148&ixlib=java-1.2.0&w=240&s=f5c80b10675a0bc1332b4b571e028e86" height="74" width="120" title="" alt="" /></a></div></div></div><div class="cmn-article_title"><h4><a href="/article/DGXZQOHD014B50R00C21A3000000/"><span class="cmnc-middle">スシローGHD、一時7%高　京樽買収で相乗効果に期待</span></a> <span class="m-iconMember">［有料会員限定］</span></h4></div><div class="cmn-article_summary_wrap"><div class="cmn-article_summary"><p><br />1日の東京株式市場で、回転ずし大手のスシローグローバルホールディングス株が一時、前週末比295円（7%）高の4280円を付けた。持ち帰りすし店などを展開する京樽（東京・中央）を吉野家ホールディングスか<a href="/article/DGXZQOHD014B50R00C21A3000000/" class="cmnc-continue">…続き</a><span class="cmnc-time">
+				（20:31）
+				</span></p></div></div>
+</div>
+		<div class="cmn-article_list_style1">
+					<ul>
+						<li>
+								<a href="/article/DGXZASS0ISF12_R00C21A3000000/"><span class="cmnc-small">株価指数先物・オプション大引け　先物が反発、コールが買われる</span></a><span class="cmnc-time">
+									（16:05）
+								</span>
+								<span class="m-iconMember">［有料会員限定］</span></li>
+						<li>
+								<a href="/article/DGXZASS0ISST2_R00C21A3000000/"><span class="cmnc-small">新興株1日　ジャスダック、マザーズ反発　米金利の上昇一服、投資家心理上向く</span></a><span class="cmnc-time">
+									（15:34）
+								</span>
+								</li>
+						<li>
+								<a href="/article/DGXZASS0ISS16_R00C21A3000000/"><span class="cmnc-small">東証大引け　反発し697円高　米金利の上昇一服で</span></a><span class="cmnc-time">
+									（15:28）
+								</span>
+								</li>
+						</ul>
+				</div>
+			<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10100">国内株概況一覧</a></div>
+	</div>
+<ul class="m-miM08 PRa">
+					<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1743, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2305_1743">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2305_1743');
+			     }catch(err){}
+			 </script>
+			</div>
+			</ul>
+			<div class="mk-top_stock_average cmn-clearfix">
+      <div class="m-headline">
+          <h2 class="m-headline_text">日経平均株価<span class="cmn-notes">（1日、大引、円）</span></h2>
+      </div>
+      <div class="cmn-clearfix">
+        <div class="mkc-chart">
+          <a href="/markets/chart/#!/0101" target="_blank" style="text-decoration:none;"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/nkd/common/img_loading_294-196.png" data-original="https://chart-renderer.n8s.jp/m/marketdata/indexes/line/tick/?code=N101/T&chart_style=pc_half&term=1&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jaGFydC1yZW5kZXJlci5uOHMuanAvbS9tYXJrZXRkYXRhKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTYxNDY4OTEwMH19fV19&Signature=n0Kfd5jYwRaPckHWwYWlCn-yJg~-Gy7NLuSWXflsAYp1HcTyhwTYXBXEXDPuyfiukS8TPkZeIQ1HFIsiirlL~A8PkW~LCozbgIcVceXTdd0xTV0Nh4fVrJF1Sq4kGj~JASPtsnn~T8V8Qt5048vndJ3zKNuNL6409qZdtuGeJet15rhT9zRADlKCT3USwyxmuGTFzhQLOTOLXi0AtuM4i1GczBdBI0lDJAHb-mJU0KfJHlqQDfYru4GP3e0OS~uDCcBVZIpqLbgUIDj1DyYuQ7NrQa1TOF8lX0K097iG78w7vYRRLeHEG5hThppf-0UM5xK97ci0uFOLJK2WtWqE~w__&Key-Pair-Id=APKAJWFGMKSKMEUT6WQA" class="lazyload" width="294" height="196" id="js-stock1-img" />
+              <div style="display: none" id="JSID_chartCompare"></div></a><script type="text/javascript">$("img.lazyload").lazyload();</script>
+          <ul class="cmn-flat_list">
+              <li class="cmnc-here" id="stock1"><a href="#" style="color:#000000;text-decoration:none" id="stk1link">1日</a></li>
+              <li id="stock3"><a href="#" id="stk3link">3か月（NYダウ比較）</a></li>
+              <li class="cmnc-last"><a href="/smartchart/" target="_blank">スマートチャート</a></li>
+          </ul>
+        </div>
+
+        <div class="mkc-guidepost">
+          <div class="mkc-prices">
+            <span class="mkc-stock_prices">29,663.50</span><br>
+            <span class="cmn-plus">▲＋697.49</span>
+                </div>
+          <dl class="mkc-move">
+            <dt>始値</dt>
+            <dd>29,419.45</dd>
+            <dt>高値</dt>
+            <dd>29,686.39</dd>
+            <dt>安値</dt>
+            <dd>29,396.04</dd>
+          </dl>
+          <div class="cmn-link_index"><a href="/markets/marketdata/top/">世界の市況</a></div>
+          <div class="cmn-link_index"><a href="/markets/kabu/nidxprice/">採用銘柄の株価</a></div>
+          <div class="cmn-link_index"><a href="http://indexes.nikkei.co.jp/" target="_blank">日経の指数について</a></div>
+          </div>
+        </div>
+      </div>
+<script type="text/javascript">
+$("#stock1").click(function() {
+  $("#stk1link").removeAttr("href");
+  $("#stk1link").attr("style", "color:#000000;text-decoration:none");
+  $("#stk3link").removeAttr("style");
+  $("#stk3link").attr("href","#")
+  $("#js-stock1-img").show();
+  $("#JSID_chartCompare").hide();
+  $("#stock1").addClass("cmnc-here");
+  $("#stock3").removeClass("cmnc-here");
+  return false;
+});
+$("#stock3").click(function() {
+  $("#stk1link").removeAttr("style");
+  $("#stk1link").attr("href","#");
+  $("#stk3link").removeAttr("href");
+  $("#stk3link").attr("style", "color:#000000;text-decoration:none");
+  if( typeof _nk.drawchart != 'function') {
+      $.getScript("//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.market.chart.js", function(){
+          $.getScript("//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.market.chart.draw.min.js", function(){
+              
+              _nk.drawchart("#JSID_chartCompare", {"JSID_marketChartUrl" : "/async/async.do/?ae=JO_MM_CHART_COMPARE&sv=NX", "JSID_marketChartType" : "compare",
+                  "JSID_marketChartCallback" : function() {
+                        $("#js-stock1-img").hide();
+                        $("#JSID_chartCompare").show();
+                        $("#stock1").removeClass("cmnc-here");
+                        $("#stock3").addClass
+                        ("cmnc-here");
+              }});
+          });
+      });
+    } else {
+        _nk.drawchart("#JSID_chartCompare", {"JSID_marketChartUrl" : "/async/async.do/?ae=JO_MM_CHART_COMPARE&sv=NX", "JSID_marketChartType" : "compare",
+            "JSID_marketChartCallback" : function() {
+                $("#js-stock1-img").hide();
+                $("#JSID_chartCompare").show();
+                $("#stock1").removeClass("cmnc-here");
+                $("#stock3").addClass
+                ("cmnc-here");
+        }});
+    }
+  return false;
+});
+</script>
+<ul class="m-miM08 PRb">
+			<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1744, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2306_1744">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2306_1744');
+			     }catch(err){}
+			 </script>
+			</div>
+			<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1745, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2307_1745">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2307_1745');
+			     }catch(err){}
+			 </script>
+			</div>
+			</ul>
+	<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10200">注目株概況</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10200&quot;}">
+						</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZASFL01HPB_R00C21A3000000/"><span class="cmnc-small">＜ﾏｻﾞｰｽﾞ＞松屋R&amp;Dが後場一段高　メキシコ向けに縫製自動機を受注</span></a><span class="cmnc-time">
+								（14:53）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASFL01HOZ_R00C21A3000000/"><span class="cmnc-small">＜東証＞KDDIが安い　ドコモが新プラン値下げ、競争激化を懸念</span></a><span class="cmnc-time">
+								（14:28）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASFL01HO2_R00C21A3000000/"><span class="cmnc-small">＜東証＞NSSOLが一時5%高　大和が投資判断引き上げ</span></a><span class="cmnc-time">
+								（13:15）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASFL01HMG_R00C21A3000000/"><span class="cmnc-small">＜東証＞スシローGHが7%高　すし店の京樽を買収、テークアウト需要取り込む</span></a><span class="cmnc-time">
+								（12:37）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10200">注目株概況一覧</a></div>
+	</div>
+<ul class="m-miM08 PRc">
+			<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1746, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2308_1746">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2308_1746');
+			     }catch(err){}
+			 </script>
+			</div>
+			<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1747, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2309_1747">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2309_1747');
+			     }catch(err){}
+			 </script>
+			</div>
+			</ul>
+	<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10300&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_120" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_120" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_120" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_120" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZQOGD0126S0R00C21A3000000/"><span class="cmnc-small">生保はそれでも株を買う　金利上昇、持続に懐疑的</span></a><span class="cmnc-time">
+								（3/1）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD266FR0W1A220C2000000/"><span class="cmnc-small">続くか「月前半高・後半安」　金利上昇、株優位揺さぶる</span></a><span class="cmnc-time">
+								（2/26）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGH2578I0V20C21A2000000/"><span class="cmnc-small">「日銀離れ」探る株式市場　ETF減額、正常化へ一歩</span></a><span class="cmnc-time">
+								（2/25）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQODK242UC0U1A220C2000000/"><span class="cmnc-small">「正常化トレード」波高し　ポジション偏重、波乱の芽</span></a><span class="cmnc-time">
+								（2/24）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10300">スクランブル一覧</a></div>
+	</div>
+<ul class="m-miM08 PRc">
+				<script type='text/javascript'>
+				    try{
+				        TagProvider.requestAds({sectionId: 1748, dmp: true, sync: false});
+				    }catch(err){}
+				</script>
+				<div id="2310_1748">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2310_1748');
+			     }catch(err){}
+			 </script>
+			</div>
+			</ul>
+	<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10400">スクランブル・フラッシュ</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10400&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_150" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_150" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_150" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_150" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZQOGD010YZ0R00C21A3000000/"><span class="cmnc-small">日経平均一時700円高　荒れる相場は「三寒四温」</span></a><span class="cmnc-time">
+								（3/1）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD262G00W1A220C2000000/"><span class="cmnc-small">日経平均2万9000円割れ　長期マネーに逆回転リスク</span></a><span class="cmnc-time">
+								（2/26）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD251T80V20C21A2000000/"><span class="cmnc-small">三井物産が13年ぶり高値 景気期待、日本株と資源の交差点</span></a><span class="cmnc-time">
+								（2/25）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD222GR0S1A220C2000000/"><span class="cmnc-small">日銀がETF買い抑制？　懸念が生む日本株伸び悩み</span></a><span class="cmnc-time">
+								（2/22）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10400">スクランブル・フラッシュ一覧</a></div>
+	</div>
+<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10500">マーケット反射鏡</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10500&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_080" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_080" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_080" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_080" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZQOGH223GZ0S1A220C2000000/"><span class="cmnc-small">金鉱株はもう売却 バフェット氏「見切り千両」</span></a><span class="cmnc-time">
+								（2/24）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGH153J00V10C21A2000000/"><span class="cmnc-small">トップ交代が下手な日本　長期投資の妨げにも</span></a><span class="cmnc-time">
+								（2/17）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGH083GU0Y1A200C2000000/"><span class="cmnc-small">女性活躍って何なのか　ソニーも東レもアウトの指数</span></a><span class="cmnc-time">
+								（2/10）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGH08D4L0Y1A100C2000000/"><span class="cmnc-small">巣ごもり投資、日本でも急増　いずれ手痛い失敗も</span></a><span class="cmnc-time">
+								（2/3）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10500">マーケット反射鏡一覧</a></div>
+	</div>
+<div class="mk-top_disclose m-block cmn-clearfix">
+        <div class="m-headline">
+            <h2 class="m-headline_text"><a href="/markets/ranking/page/?bd=disclose">見られた適時開示速報</a></h2>
+        </div>
+        <table cellspacing="0">
+            <tbody>
+            <tr>
+                    <th>
+                        <a href="/nkd/company/?scode=6670" target="_blank">ＭＣＪ</a></th>
+                    <td>
+                        <div class="mkc-title">
+                            <a href="https://www.nikkei.com/markets/company/sys/redirect_dis.aspr?ano=cs9lxh&amp;t=https://www.nikkei.com/nkd/disclosure/tdnr/cs9lxh/" target="_blank">2021年3月期　株主優待実施に関するお知らせ<wbr>&nbsp;<span class="mkc-time">(21/3/1)</span></a></div>
+                    </td>
+                </tr>
+            <tr>
+                    <th>
+                        <a href="/nkd/company/?scode=8986" target="_blank">大和証券リビ</a></th>
+                    <td>
+                        <div class="mkc-title">
+                            <a href="https://www.nikkei.com/markets/company/sys/redirect_dis.aspr?ano=crytsh&amp;t=https://www.nikkei.com/nkd/disclosure/tdnr/crytsh/" target="_blank">投資主優待制度の概要決定に関するお知らせ<wbr>&nbsp;<span class="mkc-time">(21/3/1)</span></a></div>
+                    </td>
+                </tr>
+            <tr>
+                    <th>
+                        <a href="/nkd/company/?scode=2593" target="_blank">伊藤園</a></th>
+                    <td>
+                        <div class="mkc-title">
+                            <a href="https://www.nikkei.com/markets/company/sys/redirect_dis.aspr?ano=cs0zy5&amp;t=https://www.nikkei.com/nkd/disclosure/tdnr/cs0zy5/" target="_blank">2021年４月期 第３四半期決算短信〔日本基準〕（連結）<wbr>&nbsp;<span class="mkc-time">(21/3/1)</span></a></div>
+                    </td>
+                </tr>
+            <tr>
+                    <th>
+                        <a href="/nkd/company/?scode=4559" target="_blank">ゼリア新薬</a></th>
+                    <td>
+                        <div class="mkc-title">
+                            <a href="https://www.nikkei.com/markets/company/sys/redirect_dis.aspr?ano=cs9ljm&amp;t=https://www.nikkei.com/nkd/disclosure/tdnr/cs9ljm/" target="_blank">株主優待品コース内容変更のお知らせ<wbr>&nbsp;<span class="mkc-time">(21/3/1)</span></a></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cmn-link_index"><a href="/markets/ranking/page/?bd=disclose">見られた適時開示速報</a></div>
+        <div class="cmn-link_index"><a href="/markets/kigyo/disclose/">過去の適時開示一覧</a></div>
+    </div>
+<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10600">マーケットニュース</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10600&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_130" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_130" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_130" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_130" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZQOGD010KZ0R00C21A3000000/"><span class="cmnc-small">日経平均655円高、午前終値2万9621円　半導体関連が上昇</span></a><span class="cmnc-time">
+								（11:58更新）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZMSFL26HZXTW1A220C2000000/"><span class="cmnc-small">株、海外投資家が3週ぶり売り越し　個人は3週連続売り越し　2月第3週</span></a><span class="cmnc-time">
+								（26日 23:34更新）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD22A1X0S1A220C2000000/"><span class="cmnc-small">避けたい ワクチンの政治問題化</span></a><span class="cmnc-time">
+								（26日 11:30）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZQOGD254D80V20C21A2000000/"><span class="cmnc-small">先進国の割安株にマネー回帰　指数が1年ぶり水準に</span></a><span class="cmnc-time">
+								（25日 21:00）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10600">マーケットニュース一覧</a></div>
+	</div>
+<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10800">逆日歩</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10800&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_050" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_050" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_050" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_050" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZMSGW02001_R00C21A3000000/"><span class="cmnc-small">26日の逆日歩</span></a><span class="cmnc-time">
+								（3/1）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXZMSGW27001_W1A220C2000000/"><span class="cmnc-small">25日の逆日歩</span></a><span class="cmnc-time">
+								（2/26）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXZMSGW26001_V20C21A2000000/"><span class="cmnc-small">24日の逆日歩（3日分合計）</span></a><span class="cmnc-time">
+								（2/25）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXZMSGW25001_U1A220C2000000/"><span class="cmnc-small">22日の逆日歩</span></a><span class="cmnc-time">
+								（2/24）
+							</span>
+							</li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10800">逆日歩一覧</a></div>
+	</div>
+<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C10900">日経平均ダービー</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C10900&quot;}">
+						<form class="m-miM19B" action="#" method="post" onclick="_nk.click(this,event,[['JSID_actCommonPopupOpen',{JSID_urlData: '/async/async.do/?ae=P_LK_FOLLOW_MYNEW_BALLON&balloonPosision=top&sv=NX', JSID_popupPosision:'bottom'}]]);return false">
+                    <span>
+                        <span class="m-miM19B_inner">
+                            <span class="m-miM19B_icon"></span><span class="m-miM19B_text">フォローする</span>
+                        </span>
+                    </span>
+                </form>
+            <form id="JSID_formGroupResultmarkets_DF_SEC8_C1_____DF_SEC8_C1_140" method="post" action="/async/usync.do/?sv=NX" class="m-miM19B JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_ILMYMESSAGE_V2" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_140" /><input type="hidden" name="FOLLOW_ACTION_TYPE" value="1" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><form id="groupFollowFormmarkets_DF_SEC8_C1_____DF_SEC8_C1_140" method="post" action="/async/usync.do/.do?sv=NX" class=" JSID_optForm_utoken" onsubmit="return false;"><input type="hidden" name="USYNC_DISP_ID" value="JO_LK_GROUP_FOLLOW" /><input type="hidden" name="bq" value="" class="JSID_myProcType" /><input type="hidden" name="follow_uid" value="markets_DF_SEC8_C1_____DF_SEC8_C1_140" /><input type="hidden" name="collection_id" value="" /><input type="hidden" name="ag" value="202103012153" /><input type="hidden" name="sv" value="NX" /><input type="hidden" name="dv" value="pc" /><input type="hidden" name="utoken" value="" class="JSID_dataForm_tokenSession" /></form><script type="text/javascript">
+            $("body").bind("touchend",function(e){});
+        </script></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXMZO61477600U0A710C2I00000/"><span class="cmnc-small">日経平均ダービー　渡辺氏「9月末、米国債増発が焦点」</span></a><span class="cmnc-time">
+								（2020/7/18）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXMZO58028530U0A410C2I10000/"><span class="cmnc-small">日経平均ダービー　嶌峰氏「感染鈍化なら2万1000円も」</span></a><span class="cmnc-time">
+								（2020/4/18）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXMZO54658050R20C20A1000000/"><span class="cmnc-small">日経平均ダービー　隅谷氏「円安で業績上振れも」</span></a><span class="cmnc-time">
+								（2020/1/25）
+							</span>
+							</li>
+					<li>
+							<a href="/article/DGXMZO51236560R21C19A0000000/"><span class="cmnc-small">日経平均ダービー　藤代氏「製造業中心に反発」</span></a><span class="cmnc-time">
+								（2019/10/26）
+							</span>
+							</li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C10900">日経平均ダービー一覧</a></div>
+	</div>
+<div class="m-block cmn-clearfix">
+		<div class="m-headline a-doneFollow">
+			<h2 class="m-headline_text"><a href="/markets/kabu/page/?uah=18C11000">株価材料</a></h2>
+			<div class="m-headline_aside">
+				<div class="a-doneFollow_form">
+					<span data-rn-track="markets_follow_button" data-rn-track-value="{&quot;folderTopicId&quot;:&quot;18C11000&quot;}">
+						</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="cmn-article_list_style1">
+				<ul>
+					<li>
+							<a href="/article/DGXZASS0ISSG2_R00C21A3000000/"><span class="cmnc-small">今日の株価材料（新聞など・27～1日）みずほ銀、ATMで障害</span></a><span class="cmnc-time">
+								（8:09更新）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASS0ISSG2_W1A220C2000000/"><span class="cmnc-small">今日の株価材料（新聞など・26日）米長期金利一時1.61%　株大幅安</span></a><span class="cmnc-time">
+								（26日 8:04更新）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASS0ISSG2_V20C21A2000000/"><span class="cmnc-small">今日の株価材料（新聞など25日）　米長期金利、一時1.43%に上昇　景気回復期待で</span></a><span class="cmnc-time">
+								（25日 7:33）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					<li>
+							<a href="/article/DGXZASS0ISSG2_U1A220C2000000/"><span class="cmnc-small">今日の株価材料（新聞など・23～24日）長期金利上昇「期待の表れ」　FRB議長、緩和持続を強調</span></a><span class="cmnc-time">
+								（24日 7:34）
+							</span>
+							<span class="m-iconMember">［有料会員限定］</span></li>
+					</ul>
+			</div>
+		<div class="cmn-link_index cmn-new_line">
+			<a href="/markets/kabu/page/?uah=18C11000">株価材料一覧</a></div>
+	</div>
+<div class="cmn-page_top"><a href="#PAGE_TOP">このページの先頭へ戻る</a></div>
+<div class="cmn-category_top">
+	<a href="/markets/"><span>マーケットトップへ</span></a></div></div>
+						<div class="cmn-section cmn-sc_news_flash cmn-clearfix">
+								<div class="m-headline">
+			<h3 class="m-headline_text">読まれたコラム</h3></div>
+
+		<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">3/1（月）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOGD00017_R00C21A3000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0347639001032021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=c30a81f292656f7a576af920cf57cff8" height="75" width="120" title="" alt="" /></a></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00017_01032021000000&quot;}">
+					<a href="/article/DGXZQOGD00017_R00C21A3000000/">「日銀株」がストップ高　政策点検控え動意付く？</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD010YZ001032021000000&quot;}">
+					<a href="/article/DGXZQOGD010YZ0R00C21A3000000/">日経平均一時700円高　荒れる相場は「三寒四温」</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10400">スクランブル・フラッシュ</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD0126S001032021000000&quot;}">
+					<a href="/article/DGXZQOGD0126S0R00C21A3000000/">生保はそれでも株を買う　金利上昇、持続に懐疑的</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZASFL01HP9_01032021000000&quot;}">
+					<a href="/article/DGXZASFL01HP9_R00C21A3000000/">長期金利、点検後0.3%の攻防へ　切り上がる上限</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOFZ186U4018022021000000&quot;}">
+					<a href="/article/DGXZQOFZ186U40Y1A210C2000000/">日本株、3万円の先　荒れ相場を恐れないプロの戦…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00700">日経ヴェリタスセレクト</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div>
+<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">2/27（土）～2/28（日）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOFZ186U40Y1A210C2000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0311829018022021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.88&fp-y=0.56&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=e0c8df4c6f5311dda510862aab80ba1e" height="75" width="120" title="" alt="" /></a></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOFZ186U4018022021000000&quot;}">
+					<a href="/article/DGXZQOFZ186U40Y1A210C2000000/">日本株、3万円の先　荒れ相場を恐れないプロの戦…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00700">日経ヴェリタスセレクト</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00050_26022021000000&quot;}">
+					<a href="/article/DGXZQOGD00050_W1A220C2000000/">株1000円超安、アベノミクス後7回目　過去の…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGN00003_27022021000000&quot;}">
+					<a href="/article/DGXZQOGN00003_X20C21A2000000/">FRBは「悪い金利上昇」を食い止めるか（NY特…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kaigai/page/?uah=18C70400">NY特急便</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD19664019022021000000&quot;}">
+					<a href="/article/DGXZQOGD196640Z10C21A2000000/">株と商品の相関、新局面へ　強気相場の前兆か</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00700">日経ヴェリタスセレクト</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD266FR026022021000000&quot;}">
+					<a href="/article/DGXZQOGD266FR0W1A220C2000000/">続くか「月前半高・後半安」　金利上昇、株優位揺…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div>
+<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">2/26（金）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOGD262G00W1A220C2000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0340134026022021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=41c76f7d1c4daf9c0f0b54a4d4c52e75" height="75" width="120" title="" alt="" /></a></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD262G0026022021000000&quot;}">
+					<a href="/article/DGXZQOGD262G00W1A220C2000000/">日経平均2万9000円割れ　長期マネーに逆回転…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10400">スクランブル・フラッシュ</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGN2604L026022021000000&quot;}">
+					<a href="/article/DGXZQOGN2604L0W1A220C2000000/">金利上昇と波乱懸念、マネーの行き先は（NY特急…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kaigai/page/?uah=18C70400">NY特急便</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGH2578I025022021000000&quot;}">
+					<a href="/article/DGXZQOGH2578I0V20C21A2000000/">「日銀離れ」探る株式市場　ETF減額、正常化へ…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00010_26022021000000&quot;}">
+					<a href="/article/DGXZQOGD00010_W1A220C2000000/">米金利急上昇　背景と影響は　市場の見方</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD260L9026022021000000&quot;}">
+					<a href="/article/DGXZQOGD260L90W1A220C2000000/">米マイナス実質金利解消も、債券市場が発する警報</a></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/toshimakintsubu/">豊島逸夫の金のつぶやき</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div>
+<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">2/25（木）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOGD18ED40Y1A210C2000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0323152022022021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=500675f5817550ac237c6dce5445544a" height="75" width="120" title="" alt="" /></a></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD18ED4018022021000000&quot;}">
+					<a href="/article/DGXZQOGD18ED40Y1A210C2000000/">JT、「減益でも増配」と決別　成長へ27年ぶり…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kigyo/page/?uah=18C30100">記者の目</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGN24DKH024022021000000&quot;}">
+					<a href="/article/DGXZQOGN24DKH0U1A220C2000000/">「ハイテク株の女王」が語る金利上昇の世界（NY…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kaigai/page/?uah=18C70400">NY特急便</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD251T8025022021000000&quot;}">
+					<a href="/article/DGXZQOGD251T80V20C21A2000000/">三井物産が13年ぶり高値 景気期待、日本株と資…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10400">スクランブル・フラッシュ</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00023_25022021000000&quot;}">
+					<a href="/article/DGXZQOGD00023_V20C21A2000000/">任天堂株に米個人マネー　米運用会社ARKが保有</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGH2578I025022021000000&quot;}">
+					<a href="/article/DGXZQOGH2578I0V20C21A2000000/">「日銀離れ」探る株式市場　ETF減額、正常化へ…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div>
+<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">2/24（水）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOGH223GZ0S1A220C2000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0325559022022021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.46&fp-y=0.4&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=809e55262fc81d1181d1336692efb279" height="75" width="120" title="" alt="" /></a><p>ロイター</p></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGH223GZ022022021000000&quot;}">
+					<a href="/article/DGXZQOGH223GZ0S1A220C2000000/">金鉱株はもう売却 バフェット氏「見切り千両」</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10500">マーケット反射鏡</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD1757O017022021000000&quot;}">
+					<a href="/article/DGXZQOGD1757O0X10C21A2000000/">東芝、M&A戦略めぐり波紋　営業益4000億円…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kigyo/page/?uah=18C30100">記者の目</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD00017_24022021000000&quot;}">
+					<a href="/article/DGXZQOGD00017_U1A220C2000000/">日経平均3万円割れ　市場関係者の見方は</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00400">NQNスペシャル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGN2403R024022021000000&quot;}">
+					<a href="/article/DGXZQOGN2403R0U1A220C2000000/">株価支えた「パウエルプット」（NY特急便）</a></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kaigai/page/?uah=18C70400">NY特急便</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOFL242LW024022021000000&quot;}">
+					<a href="/article/DGXZQOFL242LW0U1A220C2000000/">米テスラ、ビットコイン含み益が本業を上回る日</a></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/toshimakintsubu/">豊島逸夫の金のつぶやき</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div>
+<div class="cmnc-daily">
+		<h4 class="cmn-headline_styleday">2/23（火）</h4>
+		<div class="cmnc-oneday cmn-clearfix">
+			<div class="cmnc-onedayL"><a href="/article/DGXZQOGD228G00S1A220C2000000/" class=""><img src="https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO0325246022022021000000-1.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.51&fp-y=0.26&fp-z=1&h=150&ixlib=java-1.2.0&w=240&s=eef7ab4532e54d45287b51b9d9ec03ca" height="75" width="120" title="" alt="" /></a></div>
+			<div class="cmnc-onedayR">
+				<ul class="cmnc-onedaylist">
+				<li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD228G0022022021000000&quot;}">
+					<a href="/article/DGXZQOGD228G00S1A220C2000000/">コロナ禍でも安定成長 予想配当性向が高い中堅企業</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kigyo/page/?uah=18C31500">ＮＥＸＴ1000</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGD2226M022022021000000&quot;}">
+					<a href="/article/DGXZQOGD2226M0S1A220C2000000/">投機の「大義」いつまで　枯れる売り持ち、調整の…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kabu/page/?uah=18C10300">スクランブル</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQOGN2304V023022021000000&quot;}">
+					<a href="/article/DGXZQOGN2304V0T20C21A2000000/">米地銀に再編の波　テック投資が引き金に (NY…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/kaigai/page/?uah=18C70400">NY特急便</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQODF225YN022022021000000&quot;}">
+					<a href="/article/DGXZQODF225YN0S1A220C2000000/">米実質金利上昇は本物か　ドル安・株高の継続を左右</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/column/page/?uah=18C00200">ポジション</a></span>
+					</div>
+				</li><li class="cmn-clearfix">
+				<div class="areatitle" data-rn-track="マーケット 読まれたコラム" data-rn-track-value="{&quot;id&quot;: &quot;DGXZQODJ163OH016022021000000&quot;}">
+					<a href="/article/DGXZQODJ163OH0W1A210C2000000/">豪州で相次ぐ製油所の閉鎖、中国の「メガ製油所」…</a><span class="m-iconMember">［有料会員限定］</span></div>
+				<div class="areasite">
+						<span>
+							<a href="/markets/shohin/page/?uah=18C60300">コモディティーVIEW</a></span>
+					</div>
+				</li></ul>
+			</div>
+		</div>
+	</div></div>
+						</div><div id="CONTENTS_SUB_BOTTOM">
+                        <div class="m-block cmn-sub_tools a-mb8">
+    <div class="cmn-headline_style2">
+        <div class="cmn-headline_style2_inner">
+            <h2 class="cmn-headline_style2_title">便利ツール</h2>
+        </div>
+    </div>
+    <ul>
+    <li>
+        <a href="/markets/company/port/shisan.aspx"><span class="icon-sub-tools icon-folder"></span>銘柄フォルダ</a><a href="/smartchart/" target="_blank" style="font-size:11px;"><span class="icon-sub-tools icon-schart"></span>スマートチャートプラス</a>
+    </li>
+    <li>
+        <a href="/markets/kabu/japanidx/"><span class="icon-sub-tools icon-interiorStock"></span>国内の株式指標</a><a href="/markets/kigyo/yutai/"><span class="icon-sub-tools icon-stockholderBonus"></span>株主優待検索</a></li>
+    <li>
+        <a href="/markets/kabu/nidxprice/"><span class="icon-sub-tools icon-NikkeiIndex"></span>日経平均採用の株価</a><a href="/markets/kabu/stkcomp/"><span class="icon-sub-tools icon-issueComparing"></span>銘柄比較</a></li>
+    <li>
+        <a href="/markets/kawase/crossrate/"><span class="icon-sub-tools icon-crossRate"></span>外為クロスレート</a><a href="/markets/fund/ranking/"><span class="icon-sub-tools icon-mmfMrf"></span>投信ランキング</a></li>
+    <li>
+        <a href="/markets/kawase/kinri/"><span class="icon-sub-tools icon-depositInterest"></span>預貯金金利</a><a href="https://vdata.nikkei.com/economicdashboard/macro/" target="_blank"><span class="icon-sub-tools icon-depositInterest"></span>統計・指標</a>
+    </li>
+    </ul>
+</div>
+<div class="m-block cmn-sub_schedule">
+    <div class="m-headline a-mb8">
+        <h2 class="m-headline_text">スケジュール</h2>
+    </div>
+    <ul class="m-newsList">
+        <li><a href="/markets/kabu/marketcalendar/">マーケットカレンダー</a></li>
+        <li><a href="/markets/kigyo/money-schedule/kessan/">決算発表スケジュール</a></li>
+        <li><a href="/markets/kigyo/money-schedule/soukai/">株主総会スケジュール</a></li>
+        <li><a href="/markets/kigyo/ipo/money-schedule/">ＩＰＯスケジュール</a></li>
+        <li><a href="/markets/kigyo/money-schedule/event/">資本イベントスケジュール<span class="m-iconMember">［有料会員限定］</span></a></li>
+    </ul>
+</div>
+<div class="cmn-sub_square_banner">
+					<div id="ADVERTISE_RECTANGLE3">
+						<div>
+							<div id="2286_1624">
+			 <script type="text/javascript">
+			     try{
+			         TagProvider.displayAd('2286_1624');
+			     }catch(err){}
+			 </script>
+			</div>
+			</div>
+					</div>
+				</div>
+			</div>
+				</div></div></div></div><div class="l-aboutNikkei JSID_tagFooter">
+        <div class="subpage-related-site">
+    <div class="subpage-related-site__inner">
+        <h2 class="subpage-related-site__title subpage-related-site__title--nikkei">日本経済新聞社の関連サイト</h2>
+        <ul class="subpage-related-site__list subpage-related-site__list--nikkei">
+            <li>
+                <a href=" https://financial.nikkei.com/?n_cid=DS_TPFTLG" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--financial"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_financial.png" title="NIKKEI Financial" alt="NIKKEI Financial" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_financial.png" title="NIKKEI Financial" alt="NIKKEI Financial" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://asia.nikkei.com/?n_cid=NARAN1002" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--nar"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_na2020.png" title="NIKKEI Asia" alt="NIKKEI Asia" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_na2020.png" title="NIKKEI Asia" alt="NIKKEI Asia" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://cn.nikkei.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--cn"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkeicn.png" title="日経中文網" alt="日経中文網" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkeicn.svg" title="日経中文網" alt="日経中文網" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://www.ft.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--ft"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_ft.png" title="Financial Times" alt="Financial Times" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_ft.svg" title="Financial Times" alt="Financial Times" /><!--<![endif]--></a></li>
+        </ul>
+        <ul class="subpage-related-site__list subpage-related-site__list--nikkei-id">
+            <li>
+                <a href="http://school.nikkei.co.jp/?waad=gy1R0aM" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--business-school"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_business-school.png" title="日経ビジネススクール" alt="日経ビジネススクール" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_business-school.png" title="日経ビジネススクール" alt="日経ビジネススクール" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://gooday.nikkei.co.jp/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--gooday"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_gooday.png" title="日経Gooday" alt="日経Gooday" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_gooday.svg" title="日経Gooday" alt="日経Gooday" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://nwp.nikkei.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--womanomics"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_womanomics.png" title="日経ウーマノミクス・プロジェクト" alt="日経ウーマノミクス・プロジェクト" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_womanomics.svg" title="日経ウーマノミクス・プロジェクト" alt="日経ウーマノミクス・プロジェクト" /><!--<![endif]--></a></li>
+            <li>
+                <a href="https://dual.nikkei.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--dual"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_dual.png" title="日経DUAL" alt="日経DUAL" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_dual.svg" title="日経DUAL" alt="日経DUAL" /><!--<![endif]--></a></li>
+            <li>
+                <a href="https://aria.nikkei.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--aria"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_aria.svg" title="大人の「働く・学ぶ・遊ぶ」を讃えるWEBメディア" alt="大人の「働く・学ぶ・遊ぶ」を讃えるWEBメディア" /></a></li>
+            <li>
+                <a href="https://doors.nikkei.com/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--doors"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_doors.svg" title="私だけの扉をみつけるWEBメディア" alt="私だけの扉をみつけるWEBメディア" /></a></li>
+            <li>
+                <a href="http://bizgate.nikkei.co.jp/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--bizgate"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/biz/logo.light.horizon.bizgate.png" title="日経BizGate" alt="日経BizGate" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/biz/logo.light.horizon.bizgate.svg" title="日経BizGate" alt="日経BizGate" /><!--<![endif]--></a></li>
+            <li>
+                <a href="https://channel.nikkei.co.jp/m/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--channel-markets"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_channel_markets.png" title="日経チャンネルマーケッツ" alt="日経チャンネルマーケッツ" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_channel_markets.svg" title="日経チャンネルマーケッツ" alt="日経チャンネルマーケッツ" /><!--<![endif]--></a></li>
+            <li>
+                <a href="https://business.nikkei.com" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--business"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkeibizdenshiban.svg" title="日経ビジネス電子版：リーダーのための経営・マネジメント情報" alt="日経ビジネス電子版：リーダーのための経営・マネジメント情報" /></a></li>
+            <li>
+                <a href="https://xtech.nikkei.com/?n_cid=nbpitp_ds99999" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--xtech"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_xtech.svg" title="日経クロステック：技術×ビジネスの最前線を伝える" alt="日経クロステック：技術×ビジネスの最前線を伝える" /></a></li>
+            <li>
+                <a href="https://xtrend.nikkei.com/?n_cid=nbpxtd_ds99999" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--xtrend"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_xtrend.png" title="日経クロストレンド：新市場を創る人のデジタル戦略メディア" alt="日経クロストレンド：新市場を創る人のデジタル戦略メディア" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_xtrend.svg" title="日経クロストレンド：新市場を創る人のデジタル戦略メディア" alt="日経クロストレンド：新市場を創る人のデジタル戦略メディア" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://www.bs-j.co.jp/plus10/column/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--plus-10"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_plus10_2018.png" title="日経プラス10" alt="日経プラス10" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_plus10_2018.svg" title="日経プラス10" alt="日経プラス10" /><!--<![endif]--></a></li>
+            <li>
+                <a href="http://natgeo.nikkeibp.co.jp/?n_cid=nbpnng_ds99999" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--natgeo"><!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_ngj.png" title="NATIONAL GEOGRAPHIC：地球の素顔をビジュアルに伝える" alt="NATIONAL GEOGRAPHIC：地球の素顔をビジュアルに伝える" /><![endif]-->
+                    <!--[if gte IE 9]><!--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_ngj.svg" title="NATIONAL GEOGRAPHIC：地球の素顔をビジュアルに伝える" alt="NATIONAL GEOGRAPHIC：地球の素顔をビジュアルに伝える" /><!--<![endif]--></a></li>
+            <li>
+                <a href="https://style.nikkei.com/?n_cid=LMNST004" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--style"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkeistyle.svg" title="NIKKEI STYLE" alt="NIKKEI STYLE" /></a></li>
+            <li>
+                <a href="http://smartwork.nikkei.co.jp/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--smart-work"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_smartwork.svg" title="NIKKEI Smart Work" alt="NIKKEI Smart Work" /></a></li>
+            <li>
+                <a href="https://bit.ly/2KoiUBi" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--paravi"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_paravi.svg" title="Paravi" alt="Paravi" /></a></li>
+            <li>
+                <a href="https://events.nikkei.co.jp/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--event-seminar"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_event_seminar.svg" title="日経イベント＆セミナー" alt="日経イベント＆セミナー" /></a></li>
+            <li>
+                <a href="https://ntest.nikkei.jp/" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--test"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_test.svg" title="NIKKEI TEST" alt="NIKKEI TEST" /></a></li>
+            <li>
+                <a href="https://career.nikkei.com/?n_cid=DS_TPFTLG" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--career"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_career.png" title="日経転職版" alt="日経転職版" /></a></li>
+            <li>
+                <a href="https://seeks.nikkei.com/?n_cid=seeks_both_nk_disp_brand_201208" target="_blank" class="subpage-related-site__link-item subpage-related-site__link-item--seeks"><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkeiseeks.png" title="日経SEEKS" alt="日経SEEKS" /></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="subpage-related-information">
+    <div class="subpage-related-information__inner">
+        <div class="subpage-related-information__category subpage-related-information__category--event">
+            <h3 class="subpage-related-information__title">イベント・セミナー</h3>
+            <ul class="subpage-related-information__list">
+                <li><a href="http://www.nikkei-events.jp/" target="_blank"><i class="m-wficon dot"></i>日経イベンツガイド</a></li>
+                <li><a href="https://academia.nikkei.co.jp/" target="_blank"><i class="m-wficon dot"></i>日経アートアカデミア</a></li>
+                <li><a href="http://www.nikkei-hall.com/" target="_blank"><i class="m-wficon dot"></i>日経ホールと貸会議室</a></li>
+                <li><a href="http://www.nikkei.co.jp/konwakai/" target="_blank"><i class="m-wficon dot"></i>日経懇話会</a></li>
+                <li><a href="http://school.nikkei.co.jp/feature/hr/haken.html" target="_blank"><i class="m-wficon dot"></i>講演会向け講師紹介</a></li>
+            </ul>
+        </div>
+        <div class="subpage-related-information__category subpage-related-information__category--training">
+            <h3 class="subpage-related-information__title">教育・キャリア</h3>
+            <ul class="subpage-related-information__list">
+                <li><a href="https://school.nikkei.co.jp/feature/hr?waad=ZKK5ORD4" target="_blank"><i class="m-wficon dot"></i>日経の企業内研修</a></li>
+                <li><a href="https://school.nikkei.co.jp/special/globalbphr?waad=ZKK5ORD4" target="_blank"><i class="m-wficon dot"></i>日経のグローバル人材育成</a></li>
+                <li><a href="https://r.nikkei.com/journalists" target="_blank"><i class="m-wficon dot"></i>日経のベテラン記者を講師に</a></li>
+            </ul>
+        </div>
+        <div class="subpage-related-information__category subpage-related-information__category--service">
+            <h3 class="subpage-related-information__title">各種サービス</h3>
+            <ul class="subpage-related-information__list">
+                <li><a href="http://t21.nikkei.co.jp/" target="_blank"><i class="m-wficon dot"></i>日経テレコン</a></li>
+                <li><a href="http://www.nikkei.co.jp/needs/" target="_blank"><i class="m-wficon dot"></i>NEEDS</a></li>
+                <li><a href="https://marketing.nikkei.co.jp/media/global/channel_japan/" target="_blank"><i class="m-wficon dot"></i>Channel JAPAN</a></li>
+                <li><a href="https://channel.nikkei.co.jp/" target="_blank"><i class="m-wficon dot"></i>日経チャンネル</a></li>
+                <li><a href="http://ps.nikkei.co.jp/nbrand/" target="_blank"><i class="m-wficon dot"></i>N-BRAND STUDIO</a></li>
+                <li><a href="https://www.nikkeibook.com/" target="_blank"><i class="m-wficon dot"></i>日本経済新聞の本</a></li>
+                <li><a href="http://www.nikkei.co.jp/rim/glweb/index.htm" target="_blank"><i class="m-wficon dot"></i>日経グローカル</a></li>
+                <li><a href="https://id.nikkei.com/lounge/nl/base/LA0010.seam" target="_blank"><i class="m-wficon dot"></i>日経IDラウンジ</a></li>
+                <li><a href="https://art.nikkei-ps.co.jp/" target="_blank"><i class="m-wficon dot"></i>日経の美術品</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="subpage-about-nikkei">
+    <div class="subpage-about-nikkei__inner">
+        <h2 class="subpage-about-nikkei__title">日本経済新聞社について</h2>
+        <ul class="subpage-about-nikkei__list">
+            <li><a href="http://www.nikkei.co.jp/nikkeiinfo/" target="_blank">会社情報</a></li>
+            <li><a href="http://www.nikkei.co.jp/nikkeiinfo/news/press/" target="_blank">プレスリリース</a></li>
+            <li><a href="http://pr.nikkei.com/share/" target="_blank">記事利用</a></li>
+            <li><a href="https://www.nikkei.co.jp/nikkeiinfo/privacy/about.html" target="_blank">個人情報の取り扱い</a></li>
+            <li><a href="https://www.nikkei.co.jp/saiyo/?n_cid=JSID2" target="_blank">本社採用案内</a></li>
+            <li><a href="http://www.nikkei.co.jp/nikkeiinfo/company/group.html" target="_blank">日経グループ情報</a></li>
+            <li><a href="https://marketing.nikkei.co.jp/media/newspaper/" target="_blank">新聞広告ガイド</a></li>
+            <li><a href="http://www.nikkei4946.com/" target="_blank">紙面紹介と購読案内</a></li>
+            <li><a href="https://www.nikkei.co.jp/b2b/" target="_blank">法人お問い合わせ窓口</a></li>
+            <li><a href="https://www.nikkei.com/edit/sns/?n_cid=DSSCN001" target="_blank">SNSアカウント一覧</a></li>
+        </ul>
+        <h2 class="subpage-about-nikkei__title">日経電子版について</h2>
+        <ul class="subpage-about-nikkei__list" id="aboutNikkeiBottom">
+            <li><a href="https://www.nikkei.com/info/policy.html" target="_blank">サイトポリシー</a></li>
+            <li><a href="https://www.nikkei.com/help/" target="_blank">ヘルプセンター</a></li>
+            <li><a href="https://support.nikkei.com/" target="_blank">FAQ・お問い合わせ</a></li>
+            <li><a href="https://regist.nikkei.com/support/">ご購読サポート</a></li>
+            <li><a href="http://chatfaq.nikkei.com/">チャットサポート</a></li>
+            <li><a href="https://marketing.nikkei.co.jp/media/web/">電子版広告ガイド</a></li>
+            <li><a href="https://www.nikkei.com/info/link.html" target="_blank">リンクポリシー</a></li>
+            <li><a href="https://www.nikkei.com/info/copyright.html" target="_blank">著作権</a></li>
+            <li><a href="https://www.nikkei.com/lounge/help/cookie.html" target="_blank">データ利用</a></li>
+            <li><a href="https://www.nikkei.com/lounge/help/privacy.html" target="_blank">個人情報</a></li>
+            <li><a href="https://www.nikkei.com/info/tos_ds.html" target="_blank">利用規約</a></li>
+            <li><a href="https://www.nikkei.com/info/sitemap.html" target="_blank">サイトマップ</a></li>
+            <li><a href="/news/info/" target="_blank">訂正・おわび</a></li>
+        </ul>
+    </div>
+</div>
+<div class="subpage-footer">
+    <div class="subpage-footer__inner">
+        <span class="subpage-footer__logo">
+            <!--[if lte IE 8]><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_footer.png" title="NIKKEI" alt="NIKKEI" /><![endif]-->
+                <!--[if gte IE 9]--><img src="//assets.nikkei.jp/release/v3.2.141/parts/ds/images/common/logo_nikkei_footer.svg" title="NIKKEI" alt="NIKKEI" /><!--[endif]-->
+            </span>
+        <span class="subpage-footer__copyright">No reproduction without permission.</span>
+    </div>
+</div>
+
+</div>
+<script type="text/javascript">
+_nkconf.DATA_ENGLISH_GUIDE_URL="/async/async.do/?ae=P_LK_ILGUIDE&sv=NX";_nkconf.DATA_CHINESE_GUIDE_URL="/async/async.do/?ae=P_LK_ILGUIDE_CHINESE&sv=NX";_nkconf.ENGLISH_GUIDE_FLG=true;_nkconf.IS_TOPPAGE=false;_nkconf.BREAKING={global_load:70000,global_close:"1",global_expire:"day"};</script>
+<script type="text/javascript"  src="//assets.nikkei.jp/release/v3.2.141/parts/ds/script/nkds.footer.min.js"></script><script type="text/javascript">
+</script>
+
+<script type="text/javascript" id="NK_JSID_SMARTGUIDE" src="//partsa.nikkei.com/parts/js/smartguide.20180329_1.js"></script>
+<!--SiteCatalyst code-->
+<script type="text/javascript">
+var prop1="DS-マーケット";
+var prop2="DS-マーケット-株式";
+
+var now = new Date();
+var pageName = location.href;
+
+var channel = "DS";
+var server = location.host;
+
+var pageType = "";
+var prop3 = "";
+var prop4 = "";
+
+var prop5 = "1";
+
+var prop6 = now.getHours();
+
+var prop14 = "";
+var prop16 = "";
+var prop17 = "";
+var prop18 = "";
+var prop20 = "";
+var prop21 = "";
+var prop22 = "";
+
+var eVar6 = "";
+
+var eVar7 = "";
+
+var prop25 = "";
+var prop28 = "";
+var prop31 = "";
+var prop32 = "";
+var prop33 = "";
+var prop34 = "";
+var prop36 = "";
+var prop37 = "";
+if(prop39 === undefined){
+var prop39 = "1";
+} else {
+prop39 = "1";
+}
+
+var prop40 = "0";
+
+if(prop46 === undefined){
+var prop46 = "0";
+}
+
+var eVar8='["18000000","18C10000"]';
+
+
+var sKeyword = "";
+</script><script type="text/javascript">
+var categoryMeta = document.createElement('meta');
+categoryMeta.setAttribute('name', 'gAnalytics:category');
+
+var subcategoryMeta = document.createElement('meta');
+subcategoryMeta.setAttribute('name', 'gAnalytics:sub_category');
+var category = '';
+var subcategory = '';
+
+var isKn = false
+try {
+  var varGaProp2 = prop2;
+} catch (e) {
+  var varGaProp2 = null;
+}
+
+if(varGaProp2 && !category){
+    var prop2List = varGaProp2.split('-');
+    if(prop2List[1]){
+        if('記事' != prop2List[1] || isKn){
+            if('DSjw' == prop2List[0]){
+                category = '人事ウオッチ';
+                if('トップ' != prop2List[1]){
+                    subcategory = prop2List[1];
+                }
+            }else if('トップ' == prop2List[1] && prop2List[2] && 'トピック一覧' == prop2List[2]){
+                category = 'トピック';
+            }else if('人事' == prop2List[1] || '人事ニュース' == prop2List[1]){
+                category = '人事';
+            }else if('おくやみ' == prop2List[1]){
+                category = 'おくやみ';
+            }else if('プレスリリース' == prop2List[1]){
+                category = 'プレスリリース';
+            }else if('写真' == prop2List[1]){
+                category = '写真';
+            }else{
+                
+                                category = prop2List[1];
+                            
+                                if(prop2List[2] && 'トップ' != prop2List[2] &&
+                                                    '一覧' != prop2List[2] &&
+                                                    '全体トップ' != prop2List[2]){
+                                    subcategory = prop2List[2];
+                                }
+                            
+            }
+        }
+    }
+}
+
+categoryMeta.setAttribute('content', category);
+if(subcategory){
+    subcategoryMeta.setAttribute('content', category + '-' + subcategory);
+}else{
+    subcategoryMeta.setAttribute('content', category);
+}
+
+
+document.getElementsByTagName('head')[0].appendChild(categoryMeta);
+
+document.getElementsByTagName('head')[0].appendChild(subcategoryMeta);
+</script><!-- SiteCatalyst code version: H.9.
+Copyright 1997-2007 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script type="text/javascript">
+(function(c1,c2){function lsc(scn,func){var sc=document.createElement('script');sc.type='text/javascript';sc.src=scn;if(func){if(window.ActiveXObject){sc.onreadystatechange=function(){var sState=sc.readyState;if((sState=='complete')||(sState=='loaded')){func()}}}else{sc.onload=function(){func()}}}document.getElementsByTagName("head")[0].appendChild(sc)}function lcdds(){lsc(c1,lcds)}function lcds(){lsc(c2)}lcdds()})
+("//assets.nikkei.jp/release/v3.2.141/parts/ds/script/SC/s_codedsall.js","//assets.nikkei.jp/release/v3.2.141/parts/ds/script/SC2/s_cDS.js");
+</script>
+<script type="text/javascript">
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+</script>
+<noscript>
+<a href="http://www.omniture.com" title="Web Analytics"><img src="http://nikkei.d1.sc.omtrdc.net/b/ss/nikkeicojpgrpmstallprod,nikkeicojpdsmstallprod,nikkeicojpdsmstdsprod,nikkeicojpdsnewsxprod/1/H.9--NS/0" height="1" width="1" border="0" alt="" />
+</a>
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.9. -->
+<!--/SiteCatalyst code-->
+<div id="JSID_baseTail"></div>
+<script type="text/javascript">_satellite.pageBottom();</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam-cell.nr-data.net","licenseKey":"da29c19cda","agent":"","beacon":"bam-cell.nr-data.net","applicationTime":117,"applicationID":"91347868","transactionName":"NFAAbBFTW0sHVBYNVg0aMUwRR0FLJ1QWDVYNGghITVFaFghSAUpXCl4JXQocUUtIXwMNSgtcDBYTU1JdSFMLF0kCQQFQBkAbfA9EEgVNAF0HSiJRQVEJWQ==","queueTime":0}</script></body>
+</html>
